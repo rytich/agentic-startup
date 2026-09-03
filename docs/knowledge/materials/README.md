@@ -19,6 +19,7 @@
 作成した資料はここに一覧し、発見できる状態を保つ（孤立させない）。
 
 - [agentic-framework 概要](agentic-framework-overview.md) — 対外説明用。docs 4 レイヤー・企画と実作業の分離・品質ゲート・複数 AI の使い分け
+- [エージェント組織導入ロードマップ](agentic-organization-roadmap/README.md) — 非エンジニア向けの全体設計図、成熟段階、判断・委任ワークシート
 
 ## 配布先（上書き対象）
 
