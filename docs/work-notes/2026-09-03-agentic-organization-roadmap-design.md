@@ -21,3 +21,4 @@
 ## 成果物
 
 - [非エンジニア向けエージェント組織導入ロードマップ 設計](../superpowers/specs/2026-09-03-agentic-organization-roadmap-design.md)
+- [非エンジニア向けエージェント組織導入ロードマップ 実装計画](../superpowers/plans/2026-09-03-agentic-organization-roadmap.md)

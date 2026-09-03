@@ -292,6 +292,7 @@ URL は検索結果ではなく、主張を直接支える page、document、rep
 
 ## 16. 参照
 
+- [実装計画](../plans/2026-09-03-agentic-organization-roadmap.md)
 - [Peitho Guide](https://peitho.gosu.ke/guide/)
 - [Peitho Writing Decks](https://peitho.gosu.ke/guide/writing-decks/)
 - [agentic-framework 概要](../../knowledge/materials/agentic-framework-overview.md)
