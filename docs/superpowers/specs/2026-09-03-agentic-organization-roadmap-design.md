@@ -212,7 +212,53 @@ AI の提案は、少なくとも次の観点で採用、保留、却下を判�
 4. **境界確認:** 未検証の代替手段や効果を、検証済みと表現していない。
 5. **実地確認:** 湯川塾での質問、つまずき、判断不能箇所を記録し、正本へ反映する。
 
-## 12. 初期提供順
+## 12. 調査と evidence の要件
+
+各成熟段階、実現 pattern、case study、worksheet、Peitho deck は、作成前に対象 topic の調査を行う。経験則だけで一般化せず、読者が根拠を確認できる URL を掲載する。
+
+### 12.1 調査の単位
+
+各 step は次の順で作成する。
+
+1. その step で対象者が判断する内容を列挙する。
+2. 判断に必要な事実、推奨、事例、未確定事項を分ける。
+3. 公式文書、公的機関、標準、一次情報を優先して調査する。
+4. 主要な主張と情報 source の対応を記録する。
+5. 複数 source から導く内容は、事実ではなく推論または本 roadmap の推奨として明示する。
+6. 出典付きの本文、worksheet、slide を作成する。
+7. URL、確認日、対象 version、未検証範囲を review する。
+
+### 12.2 Source の優先順位
+
+1. 法令、規制当局、公的機関、標準化団体の一次情報
+2. product、provider、open source project の公式 documentation と repository
+3. 原著論文、公式事例、当事者による技術資料
+4. 信頼できる解説、比較、報道
+
+二次情報だけで安全性、権限、費用、製品仕様を断定しない。provider や product の現行仕様は変更されうるため、artifact 作成時に再確認する。
+
+### 12.3 Artifact に残す evidence
+
+各 artifact は、本文の該当箇所に近い位置で出典 URL を示し、末尾に少なくとも次を含む evidence table を置く。
+
+| Field | 内容 |
+|---|---|
+| `claim_id` | 根拠と結び付ける主張 ID |
+| `claim` | 資料で述べる事実または推奨 |
+| `source_url` | 根拠を確認できる直接 URL |
+| `source_type` | official、public、standard、paper、case、secondary |
+| `checked_at` | 確認日 |
+| `applies_to` | 対象 version、platform、audience、stage |
+| `interpretation` | source が直接示す事実と、本資料の推論の区別 |
+| `review_trigger` | 再確認する条件 |
+
+URL は検索結果ではなく、主張を直接支える page、document、repository、release へ link する。access 不能な URL、出典と無関係な top page、AI の回答そのものを evidence にしない。
+
+### 12.4 完了 gate
+
+根拠が必要な主要主張に URL がない、URL と主張の対応が不明、変更されやすい仕様の確認日がない、未検証の推論が事実として書かれている場合、その step は draft のままとする。Peitho deck も正本の `claim_id` と source を引き継ぐ。
+
+## 13. 初期提供順
 
 1. 対象者 profile と ID 定義
 2. 正本となる導入ロードマップ
@@ -223,7 +269,7 @@ AI の提案は、少なくとも次の観点で採用、保留、却下を判�
 7. 湯川塾向け Peitho deck
 8. 実地 feedback を反映する更新手順
 
-## 13. 非目標
+## 14. 非目標
 
 - 全 model、provider、AI service の網羅
 - 非エンジニアだけで全環境を構築できることの保証
@@ -232,7 +278,7 @@ AI の提案は、少なくとも次の観点で採用、保留、却下を判�
 - agentic-framework の全機能説明
 - agent を増やすこと自体を成熟とみなすこと
 
-## 14. 完了判定
+## 15. 完了判定
 
 初版は、主対象者が次を実行できる状態を満たす。
 
@@ -242,8 +288,9 @@ AI の提案は、少なくとも次の観点で採用、保留、却下を判�
 - 人、AI、Script の役割と人間の承認境界を説明できる。
 - 実行結果から継続、改善、停止、対象拡大のいずれかを選べる。
 - 自分で実装できなくても、AI または専門家へ次の構築・改善を指示できる。
+- 各段階の主要主張について、対応する evidence URL と確認日を追跡できる。
 
-## 15. 参照
+## 16. 参照
 
 - [Peitho Guide](https://peitho.gosu.ke/guide/)
 - [Peitho Writing Decks](https://peitho.gosu.ke/guide/writing-decks/)
