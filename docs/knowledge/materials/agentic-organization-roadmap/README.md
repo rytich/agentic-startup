@@ -21,6 +21,10 @@ AI の新機能を追い続けることではなく、事業課題へ安全か�
 2. [ロードマップ全体](roadmap.md)
 3. [Stage 0: 全体を描く](stages/00-map.md)
 4. [7領域の初期設計図](worksheets/system-map.md)
+5. [Stage 1: 判断を補助させる](stages/01-decide.md)
+6. [事業課題を一成果へ絞る](worksheets/problem-framing.md)
+7. [Stage 2: 一作業を委任する](stages/02-delegate.md)
+8. [一作業の委任定義](worksheets/delegation.md)
 
 後続 Stage は調査、出典確認、レビューが完了した順に追加します。
 
