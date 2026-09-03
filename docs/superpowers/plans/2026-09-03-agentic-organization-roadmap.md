@@ -326,13 +326,13 @@ CLI、Git、API、MCP、token、provider、connector、orchestration、Script �
 
 Run: `git diff --check && ./scripts/check-doc-links.sh`
 
-Run: `rg -L "## Evidence" docs/knowledge/materials/agentic-organization-roadmap/stages/*.md`
+Run: `rg --files-without-match "## Evidence" docs/knowledge/materials/agentic-organization-roadmap/stages/*.md`
 
-Run: `rg -L "https://" docs/knowledge/materials/agentic-organization-roadmap/stages/*.md`
+Run: `rg --files-without-match "https://" docs/knowledge/materials/agentic-organization-roadmap/stages/*.md`
 
-Run: `rg -L "checked_at" docs/knowledge/materials/agentic-organization-roadmap/stages/*.md`
+Run: `rg --files-without-match "checked_at" docs/knowledge/materials/agentic-organization-roadmap/stages/*.md`
 
-Expected: diff と link check が exit 0。3 つの `rg -L` は何も出力しない。
+Expected: diff と link check が exit 0。3 つの `rg --files-without-match` は何も出力しない。
 
 - [ ] **Step 5: Work note を作成する**
 
