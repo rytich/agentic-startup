@@ -49,6 +49,19 @@ review_triggers: [roadmap-stage-change, nist-ai-rmf-revision]
 
 各領域を `未着手`、`仮説あり`、`小規模に検証済み`、`再現可能`、`分担・権限設定済み`、`効果測定・改善中` のいずれかで表します。総合点や技術力の順位にはしません。
 
+## この資料で使う技術用語
+
+- AI provider: AI modelや関連serviceを提供する会社・組織。
+- model: 入力を受け取り、文章や判断材料などを生成するAIの中核。
+- CLI: 画面のボタンではなく、文字のcommandでcomputerへ指示する操作方法。
+- Git: fileの変更履歴を保存し、以前の状態や変更理由を追跡する仕組み。
+- API: service同士が決められた形式でdataや操作を受け渡す接続口。
+- MCP: AIが外部のtoolやdata sourceを共通方式で利用するための接続規格。
+- connector: 特定serviceと接続するための機能。UIやprovider固有の場合がある。
+- orchestration: 複数のagent、作業、承認、dataの流れを全体として調整すること。
+- Script: 判断済みのruleを、同じ手順で繰り返す小さなprogram。
+- token: AIが文章を読み書きする際の処理量の単位。
+
 ## 次に行うこと
 
 [7領域の初期設計図](worksheets/system-map.md)を一度だけ埋め、`今回検証` とする項目を一つ選びます。

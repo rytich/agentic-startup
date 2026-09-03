@@ -67,28 +67,28 @@
 - Produces: 全 artifact が使う metadata と evidence contract。
 - Produces: `audience-business-leader-ai-user` の正本。
 
-- [ ] **Step 1: 対象者の5区分を設計仕様から抽出する**
+- [x] **Step 1: 対象者の5区分を設計仕様から抽出する**
 
 `前提知識`、`提供する支援`、`期待する到達点`、`対象外`、`変更時に再確認する artifact` を設計仕様の第 1、2、9、15 節と照合する。
 
-- [ ] **Step 2: 対象者と透明性について調査する**
+- [x] **Step 2: 対象者と透明性について調査する**
 
 OECD AI Principle と NIST AI RMF Core を読み、能力・限界・根拠・責任を理解可能にする要件を記録する。
 
 - `https://oecd.ai/en/dashboards/ai-principles/P7`
 - `https://airc.nist.gov/airmf-resources/airmf/5-sec-core/`
 
-- [ ] **Step 3: profile、evidence schema、map を作成する**
+- [x] **Step 3: profile、evidence schema、map を作成する**
 
 AI service は利用済みだが CLI、Git、server 運用は未経験、自力実装は必須でない、採否と改善指示を行えることが到達点、と明記する。source 優先順位、8 列の claim table、直接 URL、推論表示、再確認ルールを書く。
 
-- [ ] **Step 4: 検証する**
+- [x] **Step 4: 検証する**
 
 Run: `./scripts/check-doc-links.sh && rg -n "audience-business-leader-ai-user|claim_id|source_url|checked_at|interpretation" docs/knowledge/materials/agentic-organization-roadmap`
 
 Expected: link check が `OK`。対象者 ID と evidence contract が検出される。
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 Run: `git add docs/knowledge/materials/agentic-organization-roadmap docs/knowledge/materials/README.md && git commit -m "docs: define roadmap audience and evidence contract"`
 
@@ -106,11 +106,11 @@ Run: `git add docs/knowledge/materials/agentic-organization-roadmap docs/knowled
 - Consumes: Task 1 の contract。
 - Produces: 7 領域、6 状態の診断、`stage-0` の移行条件。
 
-- [ ] **Step 1: 調査質問を固定する**
+- [x] **Step 1: 調査質問を固定する**
 
 「AI 導入を事業目的、context、risk、測定へ結び付けるには何を先に描くか」「未完成の profile を更新する根拠は何か」を問う。
 
-- [ ] **Step 2: 公的 framework を調査する**
+- [x] **Step 2: 公的 framework を調査する**
 
 - `https://www.nist.gov/itl/ai-risk-management-framework`
 - `https://airc.nist.gov/airmf-resources/airmf/5-sec-core/`
@@ -118,11 +118,11 @@ Run: `git add docs/knowledge/materials/agentic-organization-roadmap docs/knowled
 
 NIST の govern、map、measure、manage と、組織目標、risk tolerance、resource に合わせた profile を確認する。AI RMF 1.0 が改訂中である点を review trigger にする。
 
-- [ ] **Step 3: Stage 0、worksheet、roadmap 骨格を作成する**
+- [x] **Step 3: Stage 0、worksheet、roadmap 骨格を作成する**
 
 事業目的、役割、data、実行環境、接続、境界と統制、効果と費用を、`未決定`、`今回検証`、`現在は決めない` に分ける。次へ進む条件は「今回扱う課題を一つ選べる」とする。
 
-- [ ] **Step 4: 検証して commit する**
+- [x] **Step 4: 検証して commit する**
 
 Run: `./scripts/check-doc-links.sh && rg -n "https://|checked_at|今回検証|次に行う" docs/knowledge/materials/agentic-organization-roadmap/stages/00-map.md`
 
@@ -143,7 +143,7 @@ Run: `git add docs/knowledge/materials/agentic-organization-roadmap && git commi
 - Consumes: Stage 0 の一課題。
 - Produces: 一成果、採否基準、根拠、責任者、停止条件。
 
-- [ ] **Step 1: 判断に必要な情報を調査する**
+- [x] **Step 1: 判断に必要な情報を調査する**
 
 - `https://oecd.ai/en/dashboards/ai-principles/P7`
 - `https://airc.nist.gov/airmf-resources/airmf/5-sec-core/`
@@ -151,11 +151,11 @@ Run: `git add docs/knowledge/materials/agentic-organization-roadmap && git commi
 
 能力・限界・根拠・risk・責任を人間が理解して判断する要素を抽出する。
 
-- [ ] **Step 2: Stage 1 と worksheet を作成する**
+- [x] **Step 2: Stage 1 と worksheet を作成する**
 
 困りごと、対象者、期待成果、観測方法、期間、対象外、採用・保留・却下基準、最終責任者を一つずつ書く。複数成果、部門、data source、権限変更を同時に含む場合は分割候補とする。
 
-- [ ] **Step 3: Evidence と推論を分離して検証する**
+- [x] **Step 3: Evidence と推論を分離して検証する**
 
 公的 source が直接述べる内容は `fact`、本 roadmap が導く手順は `roadmap recommendation` とする。
 
@@ -163,7 +163,7 @@ Run: `./scripts/check-doc-links.sh && rg -n "採用|保留|却下|最終責任|r
 
 Expected: 判断 3 分岐、責任者、evidence、推論区分が存在する。
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 
 Run: `git add docs/knowledge/materials/agentic-organization-roadmap && git commit -m "docs: add decision and problem framing stage"`
 
@@ -180,7 +180,7 @@ Run: `git add docs/knowledge/materials/agentic-organization-roadmap && git commi
 - Consumes: Stage 1 の一成果、採否基準、責任者。
 - Produces: 入力、出力、data、権限、承認、停止、検証条件を持つ委任定義。
 
-- [ ] **Step 1: Agent 委任の risk と統制を調査する**
+- [x] **Step 1: Agent 委任の risk と統制を調査する**
 
 - `https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf`
 - `https://genai.owasp.org/llmrisk/llm062025-excessive-agency/`
@@ -188,11 +188,11 @@ Run: `git add docs/knowledge/materials/agentic-organization-roadmap && git commi
 
 tool、権限、自律範囲、人間承認、logging、停止条件の根拠を抽出する。
 
-- [ ] **Step 2: Stage 2 と delegation worksheet を作成する**
+- [x] **Step 2: Stage 2 と delegation worksheet を作成する**
 
 目的、入力、許可 tool、禁止事項、参照 data、変更対象、人間承認、期待出力、合否確認、timeout、停止条件へ分解する。高影響操作は human-in-the-loop を既定にする。
 
-- [ ] **Step 3: 検証して commit する**
+- [x] **Step 3: 検証して commit する**
 
 Run: `./scripts/check-doc-links.sh && rg -n "許可|禁止|人間承認|停止条件|https://" docs/knowledge/materials/agentic-organization-roadmap/stages/02-delegate.md`
 
@@ -212,15 +212,15 @@ Run: `git add docs/knowledge/materials/agentic-organization-roadmap && git commi
 - Consumes: Stage 2 の委任定義と観測結果。
 - Produces: 正本、入力例、例外、version、実行記録。
 
-- [ ] **Step 1: 再現性と記録を調査する**
+- [x] **Step 1: 再現性と記録を調査する**
 
 NIST AI RMF Core と GenAI Profile から documentation、measurement、monitoring、condition 記録を確認する。`docs/framework/environment-reproducibility.md` と `docs/framework/agent-handoff.md` は local case として読み、公的 source と混同しない。
 
-- [ ] **Step 2: Stage 3 を作成する**
+- [x] **Step 2: Stage 3 を作成する**
 
 正本、入力条件、期待出力、例外、使用 version、実行日、担当、検証結果を記録する。「同じ prompt」だけを再現性と呼ばず、data、tool、権限、model/service version の変化を含める。
 
-- [ ] **Step 3: 検証して commit する**
+- [x] **Step 3: 検証して commit する**
 
 Run: `./scripts/check-doc-links.sh && rg -n "正本|入力条件|version|例外|検証結果|https://" docs/knowledge/materials/agentic-organization-roadmap/stages/03-reproduce.md`
 
@@ -241,22 +241,22 @@ Run: `git add docs/knowledge/materials/agentic-organization-roadmap && git commi
 - Consumes: 再現可能な一作業。
 - Produces: 役割表、project 境界、最小権限、承認経路、集中管理の正本。
 
-- [ ] **Step 1: 最小権限と agent risk を調査する**
+- [x] **Step 1: 最小権限と agent risk を調査する**
 
 - `https://csrc.nist.gov/glossary/term/least_privilege`
 - `https://csrc.nist.gov/pubs/sp/800/207/final`
 - `https://genai.owasp.org/resource/agentic-ai-threats-and-mitigations/`
 - `https://genai.owasp.org/llmrisk/llm062025-excessive-agency/`
 
-- [ ] **Step 2: Stage 4 を作成する**
+- [x] **Step 2: Stage 4 を作成する**
 
 判断を人、曖昧さを含む生成・分析を AI、決定済み rule の定期実行を Script へ割り当てる。担当、最終責任、許可、禁止、承認、代替担当を表にする。この割り当ては `roadmap recommendation` と明示する。
 
-- [ ] **Step 3: Stage 5 を作成する**
+- [x] **Step 3: Stage 5 を作成する**
 
 project ごとに目的、data、権限、担当、予算、成果、log を分離し、集中管理層には index、状態、承認待ち、費用、incident を集約する。集中管理を全 data の無制限共有と同義にしない。
 
-- [ ] **Step 4: 検証して commit する**
+- [x] **Step 4: 検証して commit する**
 
 Run: `./scripts/check-doc-links.sh && rg -n "最小権限|最終責任|project|集中管理|無制限共有|https://" docs/knowledge/materials/agentic-organization-roadmap/stages/04-separate-roles.md docs/knowledge/materials/agentic-organization-roadmap/stages/05-operate.md`
 
@@ -277,18 +277,18 @@ Run: `git add docs/knowledge/materials/agentic-organization-roadmap && git commi
 - Consumes: project 別の目的、実行、成果、費用、品質記録。
 - Produces: 継続、改善、停止、対象拡大の判断表。
 
-- [ ] **Step 1: 事業価値と費用最適化を調査する**
+- [x] **Step 1: 事業価値と費用最適化を調査する**
 
 - `https://www.finops.org/framework/`
 - `https://docs.cloud.google.com/architecture/framework/perspectives/ai-ml/cost-optimization`
 
 Google 固有 tool は例に限定し、事業目標、KPI、cost owner、継続的改善の原則だけを provider-neutral 層へ採用する。
 
-- [ ] **Step 2: Stage 6 と evaluation worksheet を作成する**
+- [x] **Step 2: Stage 6 と evaluation worksheet を作成する**
 
 成果、品質、人の確認時間、token、service 費、失敗、retry、頻度を記録し、`継続`、`一要素だけ改善`、`Script 化`、`停止` の 4 分岐を作る。
 
-- [ ] **Step 3: 検証して commit する**
+- [x] **Step 3: 検証して commit する**
 
 Run: `./scripts/check-doc-links.sh && rg -n "継続|改善|Script 化|停止|token|https://" docs/knowledge/materials/agentic-organization-roadmap/stages/06-optimize.md`
 
@@ -310,19 +310,19 @@ Run: `git add docs/knowledge/materials/agentic-organization-roadmap && git commi
 - Consumes: Task 1〜7 の profile、stage、worksheet、evidence。
 - Produces: 読む順序、現在地診断、次の一歩、変更影響、未対応を辿れる初版。
 
-- [ ] **Step 1: Spec coverage を点検する**
+- [x] **Step 1: Spec coverage を点検する**
 
 設計仕様の第 1〜16 節を読み、各要求を profile、roadmap、stage、worksheet、evidence、work note のいずれかへ対応付ける。case study と Peitho deck は別 plan の未対応として明記する。
 
-- [ ] **Step 2: Evidence table を全件監査する**
+- [x] **Step 2: Evidence table を全件監査する**
 
 各 stage の主要主張に `claim_id`、直接 `https://` URL、`source_type`、`checked_at`、`applies_to`、`interpretation`、`review_trigger` があることを確認する。
 
-- [ ] **Step 3: 非エンジニア向け表現を監査する**
+- [x] **Step 3: 非エンジニア向け表現を監査する**
 
 CLI、Git、API、MCP、token、provider、connector、orchestration、Script の初出説明を確認する。tool 導入なしでも Stage 0 と 1 を実行できることを確認する。
 
-- [ ] **Step 4: 機械検査を実行する**
+- [x] **Step 4: 機械検査を実行する**
 
 Run: `git diff --check && ./scripts/check-doc-links.sh`
 
@@ -334,11 +334,11 @@ Run: `rg --files-without-match "checked_at" docs/knowledge/materials/agentic-org
 
 Expected: diff と link check が exit 0。3 つの `rg --files-without-match` は何も出力しない。
 
-- [ ] **Step 5: Work note を作成する**
+- [x] **Step 5: Work note を作成する**
 
 作成 artifact、主要 source、検証、未検証の主張、case study と Peitho を別 plan にした理由を記録する。
 
-- [ ] **Step 6: Final commit**
+- [x] **Step 6: Final commit**
 
 Run: `git add docs/knowledge/materials docs/work-notes/2026-09-03-agentic-organization-roadmap.md && git commit -m "docs: complete agentic organization roadmap foundation"`
 
