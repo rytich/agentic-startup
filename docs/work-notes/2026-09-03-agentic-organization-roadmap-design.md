@@ -11,6 +11,7 @@
 - 対象者、設計原則、成熟段階、platform、正本、派生成果物の依存関係を ID で追跡する設計を定めた。
 - macOS を case study に限定し、Windows での同等目的の再現を代替候補として扱う境界を定めた。
 - Peitho を正本から派生する講義用 presentation format として位置付けた。
+- 各 step で調査を実施し、主要主張と evidence URL、確認日、適用範囲を追跡する完了 gate を追加した。
 
 ## 検証
 
