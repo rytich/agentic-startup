@@ -25,6 +25,11 @@ AI の新機能を追い続けることではなく、事業課題へ安全か�
 6. [事業課題を一成果へ絞る](worksheets/problem-framing.md)
 7. [Stage 2: 一作業を委任する](stages/02-delegate.md)
 8. [一作業の委任定義](worksheets/delegation.md)
+9. [Stage 3: 再現可能にする](stages/03-reproduce.md)
+10. [Stage 4: 人・AI・Scriptの役割を分ける](stages/04-separate-roles.md)
+11. [Stage 5: 組織として運用する](stages/05-operate.md)
+12. [Stage 6: 品質と費用を最適化する](stages/06-optimize.md)
+13. [効果・品質・費用の評価](worksheets/evaluation.md)
 
 後続 Stage は調査、出典確認、レビューが完了した順に追加します。
 
