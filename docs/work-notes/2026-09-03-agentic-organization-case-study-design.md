@@ -20,6 +20,16 @@
 - Outcome Matrixとscenario本文の作成
 - Peitho deckの作成
 
+## 2026-09-04 レビュー差分
+
+- 非公開の共有資料は、論点と表現を補強する内部参考に限定した。
+- 内部参考の資料名、ページ、URL、引用箇所、source IDを、出典・参考文献・evidence tableへ記録しない契約を追加した。
+- 英語圏を中心に、原著論文、標準、providerの公式技術資料を調査した。
+- task単位の適用判断、Script・workflow・agent・人の選択、multi-agentの失敗分類、costと成果の同時評価を設計へ追加した。
+- 主対象、重要成果、役割方針、platform、費用、source方針の変更影響マップを追加した。
+- 変更後の設計は人間の再レビュー待ちとして`draft`へ戻した。
+
 ## 成果物
 
 - [エージェント組織の将来構想ケーススタディ 設計](../superpowers/specs/2026-09-03-agentic-organization-case-study-design.md)
+- [エージェント組織資料の外部根拠調査](../planning/research/2026-09-04-agentic-organization-evidence-research.md)

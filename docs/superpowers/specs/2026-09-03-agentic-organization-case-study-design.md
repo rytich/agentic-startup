@@ -1,12 +1,12 @@
 ---
 title: エージェント組織の将来構想ケーススタディ 設計
-status: approved
-updated: 2026-09-03
+status: draft
+updated: 2026-09-04
 audience_ids: [audience-business-leader-ai-user]
 principle_ids: [principle-business-outcome-first, principle-platform-independent, principle-human-accountability]
-source_ids: []
+source_ids: [research-agentic-001, research-agentic-002, research-agentic-003, research-agentic-004, research-agentic-005, research-agentic-006, research-agentic-007, research-agentic-008, research-agentic-009, research-agentic-010, research-agentic-011]
 derived_artifacts: []
-review_triggers: [roadmap-outcome-change, platform-capability-change, case-study-status-change]
+review_triggers: [roadmap-outcome-change, target-audience-change, source-policy-change, platform-capability-change, case-study-status-change]
 ---
 
 # エージェント組織の将来構想ケーススタディ 設計
@@ -36,6 +36,7 @@ review_triggers: [roadmap-outcome-change, platform-capability-change, case-study
 5. **外部情報に根拠を付ける。** 出典、確認日、不確実性を引き継ぐ。
 6. **高影響操作は人が判断する。** 外部送信、SFA確定更新、削除、購入、権限変更を初期版では自動実行しない。
 7. **機密情報を資料へ含めない。** 実顧客、名刺、credential、個人情報、非公開dataを使わない。
+8. **内部参考を根拠にしない。** 非公開資料は論点と表現の補強に限り、採用する主張は外部一次資料で独立確認するか、本資料の推奨と明示する。
 
 ## 4. 成果物構成
 
@@ -76,7 +77,20 @@ docs/knowledge/materials/agentic-organization-case-study/
 
 macOSとWindowsの実現方法を、同じ成果IDと達成条件へ対応付ける。製品比較を正本にしない。
 
-## 5. 状態モデル
+## 5. 変更影響マップ
+
+| 変更対象 | 直接更新する正本 | 連動確認する箇所 |
+|---|---|---|
+| 主対象者、前提知識、判断責任 | audience profile | 本書2、Scenario Bの説明と承認点、worksheet、Peitho deck |
+| 重要成果または達成条件 | 本書7の成果表 | outcome matrix、全scenario、OS別実現例、evidence、Peitho deck |
+| agent / Script / 人の役割方針 | `OUT-07`、`OUT-10`、`OUT-11` | Scenario B、Scenario C、評価指標 |
+| provider、model、CLI、MCP仕様 | OS別実現例と該当claim | `OUT-03`、`OUT-04`、権限境界、model比較 |
+| 費用評価方針 | `OUT-08` | model比較、継続・改善・停止判断、Peitho deck |
+| sourceまたは内部参考の方針 | Evidence契約 | planning research、全claim table、Peitho deckの出典 |
+
+変更時は、直接更新する正本だけで完了とせず、連動確認した箇所と「影響なし」の箇所をwork noteに残す。
+
+## 6. 状態モデル
 
 状態は成果全体ではなく、構成要素または検証項目ごとに付ける。
 
@@ -90,7 +104,7 @@ macOSとWindowsの実現方法を、同じ成果IDと達成条件へ対応付け
 
 設定fileの存在、commandのexit 0、applicationの起動だけでは、業務scenarioを`verified-current`にしない。
 
-## 6. 重要成果
+## 7. 重要成果
 
 | ID | 重要成果 | 達成条件 |
 |---|---|---|
@@ -107,7 +121,7 @@ macOSとWindowsの実現方法を、同じ成果IDと達成条件へ対応付け
 | `OUT-11` | 人間承認を含む業務完結 | 自動処理と承認待ちを分断せず最終成果まで追跡できる |
 | `OUT-12` | 外部情報の根拠管理 | 収集情報に出典、確認日、不確実性を付けられる |
 
-## 7. 成果の追加条件
+## 8. 成果の追加条件
 
 新しい成果は次を満たす場合に追加する。
 
@@ -118,7 +132,7 @@ macOSとWindowsの実現方法を、同じ成果IDと達成条件へ対応付け
 
 追加時は既存成果との重複、影響するscenario、正本、Peitho deckを記録する。
 
-## 8. Scenario A: 遠隔から一業務を委任する
+## 9. Scenario A: 遠隔から一業務を委任する
 
 ```text
 事業責任者が遠隔から指示
@@ -132,7 +146,7 @@ macOSとWindowsの実現方法を、同じ成果IDと達成条件へ対応付け
 
 主に`OUT-01`、`OUT-02`、`OUT-05`、`OUT-06`、`OUT-08`、`OUT-11`を検証する。
 
-## 9. Scenario B: 名刺交換から商談打診まで連携する
+## 10. Scenario B: 名刺交換から商談打診まで連携する
 
 ```text
 名刺交換・名刺data受領
@@ -149,7 +163,7 @@ macOSとWindowsの実現方法を、同じ成果IDと達成条件へ対応付け
   -> 送信結果と次回行動をSFAへ反映
 ```
 
-### 9.1 役割
+### 10.1 役割
 
 | 役割 | 担当 |
 |---|---|
@@ -165,7 +179,9 @@ macOSとWindowsの実現方法を、同じ成果IDと達成条件へ対応付け
 
 初期版ではSFA確定更新と外部送信に人間承認を必須とする。このcase study作成中は実SFA更新とmail送信を行わない。
 
-## 10. Scenario C: 障害時に停止・復旧する
+固定形式の検査、重複確認、定時処理、状態反映は、まずScriptまたは定義済みworkflowで実現可能かを確認する。入力や手順が揺れる情報収集、仮説生成、例外処理にagentを用いる。役割分離の必要性を検証できない場合は、複数agentに分けない。
+
+## 11. Scenario C: 障害時に停止・復旧する
 
 ```text
 異常を検知
@@ -179,30 +195,38 @@ macOSとWindowsの実現方法を、同じ成果IDと達成条件へ対応付け
 
 主に`OUT-01`、`OUT-03`、`OUT-04`、`OUT-06`、`OUT-09`〜`OUT-11`を検証する。
 
-## 11. Model切替の扱い
+端末、provider、接続先の障害に加え、agent間のhandoff欠落、状態不整合、根拠の脱落、誤った終了判定、retryによる重複実行をfailureとして扱う。
+
+## 12. Model切替の扱い
 
 Model切替は独立scenarioにしない。`OUT-03`と`OUT-08`の検証手順として、同じ入力、完了条件、data、権限でquality、費用、所要時間、制約を比較し、採用、限定採用、却下を判断する。
 
-## 12. 調査とdata flow
+## 13. 調査とdata flow
 
-1. `OUT-01`〜`OUT-12`の達成条件を調査・確定する。
-2. 将来構想を成果単位で配置する。
-3. macOSの現在状態をread-onlyで確認する。
-4. `verified-current`と`planned`を分離する。
-5. Windowsの公式手段を調査する。
-6. 成果単位でmacOSとWindowsを比較する。
-7. 3scenarioへ成果IDを対応付ける。
-8. 未達、`blocked`、次の検証を記録する。
-9. 正本ロードマップと双方向linkする。
-10. Peitho deckがclaim IDと成果IDを参照できるようにする。
+1. `OUT-01`〜`OUT-12`で判断する内容と、根拠が必要な主要主張を列挙する。
+2. 英語圏を含む論文、公的機関、標準、公式技術資料を調査し、適用範囲と制約を記録する。
+3. 内部参考から着想した内容を、外部sourceで独立確認できる事実と本資料の推奨へ分ける。
+4. `OUT-01`〜`OUT-12`の達成条件を確定し、将来構想を成果単位で配置する。
+5. macOSの現在状態をread-onlyで確認する。
+6. `verified-current`と`planned`を分離する。
+7. Windowsの公式手段を調査する。
+8. 成果単位でmacOSとWindowsを比較する。
+9. 3scenarioへ成果IDを対応付ける。
+10. 未達、`blocked`、次の検証を記録する。
+11. 正本ロードマップと双方向linkする。
+12. Peitho deckがclaim IDと成果IDを参照できるようにする。
 
-## 13. Evidence契約
+## 14. Evidence契約
 
 各主張は[ロードマップのEvidence契約](../../knowledge/materials/agentic-organization-roadmap/evidence/README.md)に従う。外部仕様は公式文書を優先し、直接URL、確認日、適用範囲、事実と推論の区別、review triggerを記録する。
 
+英語圏を中心とした初回調査は[エージェント組織資料の外部根拠調査](../../planning/research/2026-09-04-agentic-organization-evidence-research.md)を正本とする。調査で確認した数値は、その研究の対象taskと対象者を越えて一般化しない。
+
+内部参考は資料名、ページ、URL、引用箇所、source IDを記録しない。固有の文章、見出し順、段階名、図表構成、画面例を転用しない。
+
 MacOSの状態は、実機で確認した事実と将来構想を同じclaimで表現しない。Windows代替は公式に対応が確認できても、業務scenarioの終点まで実機確認していなければ`candidate`とする。
 
-## 14. Error handling
+## 15. Error handling
 
 - 検証対象が曖昧: 成果IDと達成条件を先に確定する。
 - 認証・権限が不足: `blocked`とし、回避して検証済みとしない。
@@ -210,8 +234,11 @@ MacOSの状態は、実機で確認した事実と将来構想を同じclaimで�
 - macOSだけで成立: 共通成果でなくmacOS実現例へ限定する。
 - Windows候補が同じ統制を満たさない: 同等とせず差分とriskを記録する。
 - scenarioの途中だけ成功: 確認範囲を記録し、scenario全体を`verified-current`にしない。
+- 内部参考だけにある主張: 事実として採用せず、外部一次資料を探すか、市江氏の設計方針として明示する。
+- 論文の効果量が対象taskと異なる: 数値を転用せず、評価設計の参考に限定する。
+- agent数を増やす理由が役割名だけ: Script、固定workflow、single-agentを先に比較し、分離しない。
 
-## 15. Quality gates
+## 16. Quality gates
 
 1. 全12成果に事業目的、達成条件、人間判断、data・権限、状態、evidence、次の検証がある。
 2. macOSとWindowsの比較が製品名だけでなく成果・統制で行われている。
@@ -221,20 +248,27 @@ MacOSの状態は、実機で確認した事実と将来構想を同じclaimで�
 6. 実顧客data、名刺、mail address、credential、secretを含まない。
 7. 正本ロードマップと双方向linkされる。
 8. 全主要主張にevidence URLと確認日がある。
+9. 外部研究の効果量に、対象者、task、環境、limitationがある。
+10. 非公開の内部参考が出典、参考文献、source IDに含まれず、固有表現や構成を転用していない。
+11. agent、workflow、Script、人の選択理由が処理特性とriskで説明されている。
+12. 主対象、成果、platform、source方針を変更した場合の連動確認結果がwork noteにある。
 
-## 16. 非目標
+## 17. 非目標
 
 - 実顧客dataを使ったSFA登録やmail送信。
 - Windows環境を未検証のまま再現済みとすること。
 - macOS application一覧を標準architectureとして配布すること。
 - 全provider、model、connectorを網羅すること。
 - case study作成と同時に本番権限や認証設定を変更すること。
+- 内部参考資料を出典または構成templateとして再配布すること。
+- 論文の効果量を異なる業務へそのまま当てはめること。
 
-## 17. 完了判定
+## 18. 完了判定
 
 初版は、読者が12成果、将来構想、macOS例、Windows候補、3scenario、人間承認、未検証範囲を一つのmapから辿れ、次に検証する成果を一つ選べる状態を満たす。
 
-## 18. 関連
+## 19. 関連
 
 - [エージェント組織導入ロードマップ](../../knowledge/materials/agentic-organization-roadmap/README.md)
 - [ロードマップ設計仕様](2026-09-03-agentic-organization-roadmap-design.md)
+- [外部根拠調査](../../planning/research/2026-09-04-agentic-organization-evidence-research.md)
