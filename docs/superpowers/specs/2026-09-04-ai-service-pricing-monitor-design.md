@@ -1,6 +1,6 @@
 ---
 title: AIサービス料金比較・鮮度監視 設計
-status: draft
+status: approved
 updated: 2026-09-04
 audience_ids: [audience-business-leader-ai-user]
 principle_ids: [principle-business-outcome-first, principle-platform-independent, principle-human-accountability]
