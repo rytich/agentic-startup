@@ -1,14 +1,14 @@
 ---
 title: Stage 0 - 全体を描く
-status: active
-updated: 2026-09-03
+status: draft
+updated: 2026-09-04
 audience_ids: [audience-business-leader-ai-user]
 principle_ids: [principle-business-outcome-first, principle-small-scope-learning-loop]
 stage_ids: [stage-0]
 platform_ids: [platform-neutral]
-source_ids: [claim-stage0-001, claim-stage0-002, claim-stage0-003]
+source_ids: []
 derived_artifacts: [worksheet-system-map]
-review_triggers: [audience-profile-change, nist-ai-rmf-revision]
+review_triggers: [audience-profile-change, nist-ai-rmf-revision, source-policy-change]
 ---
 
 # Stage 0 - 全体を描く
@@ -42,7 +42,7 @@ review_triggers: [audience-profile-change, nist-ai-rmf-revision]
 
 設計図の `事業目的` から、今回扱う課題を一つ選んで丸を付けます。
 
-## Evidence
+## Evidence（旧形式・再調査中）
 
 | claim_id | claim | source_url | source_type | checked_at | applies_to | interpretation | review_trigger |
 |---|---|---|---|---|---|---|---|

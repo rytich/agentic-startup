@@ -1,14 +1,14 @@
 ---
 title: Worksheet - 効果・品質・費用の評価
-status: active
-updated: 2026-09-03
+status: draft
+updated: 2026-09-04
 audience_ids: [audience-business-leader-ai-user]
 principle_ids: [principle-business-outcome-first, principle-small-scope-learning-loop]
 stage_ids: [stage-6]
 platform_ids: [platform-neutral]
-source_ids: [claim-stage6-001, claim-stage6-002]
+source_ids: []
 derived_artifacts: []
-review_triggers: [stage-6-change]
+review_triggers: [stage-6-change, source-policy-change]
 ---
 
 # Worksheet - 効果・品質・費用の評価
@@ -37,7 +37,7 @@ review_triggers: [stage-6-change]
 - 次回review日:
 - 次に戻るStage:
 
-## Evidence
+## Evidence（旧形式・再調査中）
 
 | claim_id | claim | source_url | source_type | checked_at | applies_to | interpretation | review_trigger |
 |---|---|---|---|---|---|---|---|

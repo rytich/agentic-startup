@@ -1,14 +1,14 @@
 ---
 title: Stage 3 - 再現可能にする
-status: active
-updated: 2026-09-03
+status: draft
+updated: 2026-09-04
 audience_ids: [audience-business-leader-ai-user]
 principle_ids: [principle-small-scope-learning-loop]
 stage_ids: [stage-3]
 platform_ids: [platform-neutral]
-source_ids: [claim-stage3-001, claim-stage3-002]
+source_ids: []
 derived_artifacts: []
-review_triggers: [nist-ai-rmf-revision, nist-genai-profile-revision, stage-3-change]
+review_triggers: [nist-ai-rmf-revision, nist-genai-profile-revision, stage-3-change, source-policy-change]
 ---
 
 # Stage 3 - 再現可能にする
@@ -48,7 +48,7 @@ NIST AI RMFは、評価に使うtest、指標、tool、実行条件、限界を�
 
 直近の成功例について、使用した入力、model/service、権限、合否を一行ずつ記録します。
 
-## Evidence
+## Evidence（旧形式・再調査中）
 
 | claim_id | claim | source_url | source_type | checked_at | applies_to | interpretation | review_trigger |
 |---|---|---|---|---|---|---|---|

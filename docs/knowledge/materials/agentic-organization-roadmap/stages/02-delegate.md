@@ -1,14 +1,14 @@
 ---
 title: Stage 2 - 一作業を委任する
-status: active
-updated: 2026-09-03
+status: draft
+updated: 2026-09-04
 audience_ids: [audience-business-leader-ai-user]
 principle_ids: [principle-small-scope-learning-loop, principle-human-accountability]
 stage_ids: [stage-2]
 platform_ids: [platform-neutral]
-source_ids: [claim-stage2-001, claim-stage2-002, claim-stage2-003]
+source_ids: []
 derived_artifacts: [worksheet-delegation]
-review_triggers: [owasp-llm-top10-change, nist-genai-profile-revision, stage-2-change]
+review_triggers: [owasp-llm-top10-change, nist-genai-profile-revision, stage-2-change, source-policy-change]
 ---
 
 # Stage 2 - 一作業を委任する
@@ -50,7 +50,7 @@ Stage 1で採用した課題から、一度に結果を確認できる作業を�
 
 委任ワークシートで「許可する操作」を一つだけ選び、最初は読み取りまたは下書き作成として試します。
 
-## Evidence
+## Evidence（旧形式・再調査中）
 
 | claim_id | claim | source_url | source_type | checked_at | applies_to | interpretation | review_trigger |
 |---|---|---|---|---|---|---|---|

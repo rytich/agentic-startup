@@ -1,14 +1,14 @@
 ---
 title: Stage 1 - 判断を補助させる
-status: active
-updated: 2026-09-03
+status: draft
+updated: 2026-09-04
 audience_ids: [audience-business-leader-ai-user]
 principle_ids: [principle-business-outcome-first, principle-human-accountability, principle-small-scope-learning-loop]
 stage_ids: [stage-1]
 platform_ids: [platform-neutral]
-source_ids: [claim-stage1-001, claim-stage1-002]
+source_ids: []
 derived_artifacts: [worksheet-problem-framing]
-review_triggers: [audience-profile-change, oecd-ai-principles-change, nist-ai-rmf-revision]
+review_triggers: [audience-profile-change, oecd-ai-principles-change, nist-ai-rmf-revision, source-policy-change]
 ---
 
 # Stage 1 - 判断を補助させる
@@ -43,7 +43,7 @@ AI の出力は判断材料です。最終責任者が、[課題整理ワーク�
 
 課題整理ワークシートの「期待成果」を一つだけ書き、採否を選びます。
 
-## Evidence
+## Evidence（旧形式・再調査中）
 
 | claim_id | claim | source_url | source_type | checked_at | applies_to | interpretation | review_trigger |
 |---|---|---|---|---|---|---|---|

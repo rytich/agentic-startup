@@ -1,14 +1,14 @@
 ---
 title: Stage 5 - 組織として運用する
-status: active
-updated: 2026-09-03
+status: draft
+updated: 2026-09-04
 audience_ids: [audience-business-leader-ai-user]
 principle_ids: [principle-human-accountability, principle-platform-independent]
 stage_ids: [stage-5]
 platform_ids: [platform-neutral]
-source_ids: [claim-stage5-001, claim-stage5-002, claim-stage5-003]
+source_ids: []
 derived_artifacts: []
-review_triggers: [nist-zero-trust-revision, nist-ai-rmf-revision, organization-boundary-change]
+review_triggers: [nist-zero-trust-revision, nist-ai-rmf-revision, organization-boundary-change, source-policy-change]
 ---
 
 # Stage 5 - 組織として運用する
@@ -47,7 +47,7 @@ Projectのdata本体は、目的と権限がないprojectへ自動共有しま�
 
 現在のAI活用をproject単位で一行ずつ一覧にし、目的と最終責任者が空欄のものを一つ確認します。
 
-## Evidence
+## Evidence（旧形式・再調査中）
 
 | claim_id | claim | source_url | source_type | checked_at | applies_to | interpretation | review_trigger |
 |---|---|---|---|---|---|---|---|
