@@ -26,6 +26,17 @@ AIのmodel、agent、service、運用方法は変化が速い。社会的権威�
 - 公開日・実質更新日を確認できないsourceは、主要主張の有効な根拠にしない。
 - 同じURLが更新され続ける場合、今回使う主張に関係する実質更新から6か月未満かを確認する。単なるfooterや表示日の更新は採用しない。
 
+#### 継続更新される公式sourceの例外
+
+料金、提供状態、利用上限など、その時点の値を直接表示する公式pageは、公開日を示さず継続更新される場合がある。この`official-live` sourceは、次をすべて満たす場合に限り、「観測日時点の現在値」の根拠として採用できる。
+
+- providerの公式domainにあり、対象値を直接表示している。
+- `observed_at`、対象market、通貨・単位、取得値、値に関係する`source_fingerprint`を記録する。
+- artifactごとに定めた鮮度期限内に再確認し、期限を超えた値を最新と表示しない。
+- 取得不能、内容の矛盾、page構造の変更を、前回値で自動補完しない。
+
+`official-live` sourceは、値が変更された日や過去の値を証明しない。変更時期を述べる場合は、日付のあるrelease note、公式告知、契約通知などを別に確認する。6か月未満の条件は、日付のある外部sourceとWeb・SNS評価へ適用し、live sourceには用途別の鮮度期限を適用する。
+
 ### 一次情報の扱い
 
 - 技術仕様・機能・価格・制約: 公式specification、release note、repository、provider documentationを優先する。
@@ -71,3 +82,4 @@ AIのmodel、agent、service、運用方法は変化が速い。社会的権威�
 - Web・SNS評価だけで選ぶ案は、事実確認と人気評価が混ざるため却下した。
 - 情報不足時に6か月以上遡る例外は設けない。6か月未満の一次情報または実利用評価が不足する場合は`insufficient`または`candidate`とし、推奨しない。
 - 人間が鮮度期間を変更した場合、全claimの`source_published_or_updated_at`と`reception_published_at`を再判定する。
+- `official-live` sourceの鮮度期限を変更した場合、関連する`observed_at`と公開中の比較表を再判定する。

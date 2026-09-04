@@ -45,3 +45,20 @@
 - [エージェント組織の将来構想ケーススタディ 設計](../superpowers/specs/2026-09-03-agentic-organization-case-study-design.md)
 - [エージェント組織資料の外部根拠調査](../planning/research/2026-09-04-agentic-organization-evidence-research.md)
 - [外部情報の選定方針](../decisions/2026-09-04-external-source-selection-policy.md)
+
+## 2026-09-04 料金比較・実行経路・小規模統制の追加設計
+
+- AI serviceのsubscription料金とAPI・token料金を別表で管理する方針を決定した。
+- 初期subscriptionはBusiness Insider Japanの2026年9月版が扱う8 service、APIはOpenAI、Anthropic、Google、xAI、Perplexityとした。
+- 新規候補は自動探索せず、人間から共有された場合だけ監視対象へ追加する。
+- 公式sourceを3日ごとにread-only確認し、変更なしではmonitor stateと鮮度表示だけをbot更新し、料金・条件の変更はdraft PRへ出して人間承認前に公開値を変更しない設計とした。
+- 継続更新される公式料金pageは、`observed_at`、market、通貨・単位、取得値、fingerprintを伴う`official-live`として扱うようSource方針とEvidence契約を補強した。
+- API、CLI、MCPを構造化経路、Computer UseをGUI操作経路として比較し、安定処理は構造化経路、未接続部分と例外だけComputer Useを使う方針を追加した。
+- 「小規模なら安全」とせず、対象業務、data、identity、接続先、権限、承認、log、停止手段を限定した「小さく統制されたAI組織」の利点として説明する方針を追加した。
+- HackerOneとAkamaiの2026年調査は規模拡大、test範囲、Shadow AI可視性の根拠に使い、小規模統制の利点そのものは本設計の推論として分離した。
+- Reddit上の2026年8月の実務者議論を独立したWeb評価として追加し、匿名投稿のため一般化せず`mixed`として扱った。
+- 影響範囲として、ロードマップ設計、case study設計、Source方針、Evidence契約、将来のPeitho deckを更新対象にした。
+
+### 追加成果物
+
+- [AIサービス料金比較・鮮度監視 設計](../superpowers/specs/2026-09-04-ai-service-pricing-monitor-design.md)

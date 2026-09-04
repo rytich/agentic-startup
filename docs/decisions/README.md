@@ -44,7 +44,7 @@ YYYY-MM-DD
 
 ## 最新の記録
 
-- [2026-09-04-external-source-selection-policy.md](2026-09-04-external-source-selection-policy.md): 外部情報を公開・更新から6か月未満の一次情報と独立した実利用評価で選ぶ。
+- [2026-09-04-external-source-selection-policy.md](2026-09-04-external-source-selection-policy.md): 外部情報を公開・更新から6か月未満の一次情報と独立した実利用評価で選び、継続更新される公式料金pageは観測日時とfingerprintを伴う`official-live`として扱う。
 - [2026-08-14-codeowners-approval-boundaries.md](2026-08-14-codeowners-approval-boundaries.md): CODEOWNERSとbranch protectionで人間承認領域を補強する。
 - [2026-08-14-context7-integration.md](2026-08-14-context7-integration.md): context7を対象taskで優先するrecommended toolとして採用する。
 - [2026-08-14-safe-installer-conflict-strategy.md](2026-08-14-safe-installer-conflict-strategy.md): 初回導入の競合時は通常pathを書き換えず、candidate overlayとreportへ隔離する。

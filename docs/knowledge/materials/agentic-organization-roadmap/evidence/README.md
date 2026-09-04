@@ -24,7 +24,9 @@ review_triggers: [evidence-contract-change, source-freshness-window-change, web-
 
 技術仕様は公式specification、release note、repository、provider documentation、研究結果は原著論文や著者の正式公開物、事例は利用者・実装者・運用者の原文を優先します。二次記事は探索の入口に限り、元情報へ遡ります。
 
-`checked_at`や検索engineのcrawl日はsourceの鮮度ではありません。公開日・実質更新日を確認できないsource、検索結果、無関係なtop page、AIの回答、開けないURLは採用しません。
+`checked_at`や検索engineのcrawl日は、日付のあるsourceの鮮度ではありません。公開日・実質更新日を確認できないsource、検索結果、無関係なtop page、AIの回答、開けないURLは原則として採用しません。
+
+ただし、料金、提供状態、利用上限を直接表示して継続更新される公式pageは、[外部情報の選定方針](../../../../decisions/2026-09-04-external-source-selection-policy.md#継続更新される公式sourceの例外)を満たす場合に限り、`official-live`として観測日時点の現在値へ使用できます。過去の値や変更日は、日付のある別sourceで確認します。
 
 Web・SNS評価は、GitHub Issues / Discussions、技術forum、実装記事、X、LinkedIn、Reddit、Hacker Newsなどの原投稿を対象にします。肯定だけでなく否定、失敗、制約、運用負荷を探し、like数やview数だけで判断しません。provider自身の宣伝投稿は独立評価に数えません。
 
@@ -47,6 +49,8 @@ Web・SNS評価は、GitHub Issues / Discussions、技術forum、実装記事、
 | `primary_source_url` | 主張を直接確認できる一次情報のURL |
 | `source_type` | `official`、`standard`、`paper`、`case` |
 | `source_published_or_updated_at` | sourceに表示された公開日または実質更新日 |
+| `observed_at` | `official-live` sourceで値を直接確認した日時 |
+| `source_fingerprint` | `official-live` sourceの対象値に関係する正規化断片のhash |
 | `checked_at` | 調査日 |
 | `reception_urls` | 投稿から6か月未満の独立したWeb・SNS上の実利用評価URL |
 | `reception_published_at` | 実利用評価の公開日 |
@@ -60,7 +64,7 @@ Web・SNS評価は、GitHub Issues / Discussions、技術forum、実装記事、
 
 ## 完了条件
 
-公開・実質更新から6か月未満という鮮度を満たさない、sourceの日付が不明、主要事実の一次情報がない、採用・推奨claimに独立した実利用評価がない、URLと主張の対応が不明、推論を事実として書いている、内部参考だけで一般化している場合は`draft`のままとします。Peitho deckも正本の`claim_id`、一次情報URL、実利用評価URL、鮮度情報を引き継ぎます。
+公開・実質更新から6か月未満という鮮度を満たさない、sourceの日付が不明かつ`official-live`の例外も満たさない、主要事実の一次情報がない、採用・推奨claimに独立した実利用評価がない、URLと主張の対応が不明、推論を事実として書いている、内部参考だけで一般化している場合は`draft`のままとします。Peitho deckも正本の`claim_id`、一次情報URL、実利用評価URL、鮮度情報を引き継ぎます。
 
 2026-09-04より前の形式で記録したclaimは、新しい鮮度・実利用評価項目を満たすまで有効なevidenceとして扱いません。
 

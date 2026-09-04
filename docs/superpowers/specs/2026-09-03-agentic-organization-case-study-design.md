@@ -4,9 +4,13 @@ status: draft
 updated: 2026-09-04
 audience_ids: [audience-business-leader-ai-user]
 principle_ids: [principle-business-outcome-first, principle-platform-independent, principle-human-accountability]
-source_ids: []
+source_ids:
+  - source-openai-models-live
+  - source-hackerone-ai-security-gap-2026
+  - source-akamai-enterprise-ai-risk-2026
+  - source-reddit-shadow-ai-2026-08
 derived_artifacts: []
-review_triggers: [roadmap-outcome-change, target-audience-change, source-policy-change, source-freshness-window-change, web-reception-change, platform-capability-change, case-study-status-change]
+review_triggers: [roadmap-outcome-change, target-audience-change, source-policy-change, source-freshness-window-change, web-reception-change, platform-capability-change, case-study-status-change, pricing-source-change, execution-path-change, shadow-ai-governance-change]
 ---
 
 # エージェント組織の将来構想ケーススタディ 設計
@@ -37,6 +41,8 @@ review_triggers: [roadmap-outcome-change, target-audience-change, source-policy-
 6. **高影響操作は人が判断する。** 外部送信、SFA確定更新、削除、購入、権限変更を初期版では自動実行しない。
 7. **機密情報を資料へ含めない。** 実顧客、名刺、credential、個人情報、非公開dataを使わない。
 8. **内部参考を根拠にしない。** 非公開資料は論点と表現の補強に限り、採用する主張は外部一次資料で独立確認するか、本資料の推奨と明示する。
+9. **構造化経路を優先する。** API、CLI、MCPを安定処理の第一候補にし、Computer UseはAPIがない画面や例外処理へ限定する。
+10. **小さく統制して始める。** 対象業務、data、identity、接続先、権限、承認、log、停止手段を閉じ、確認できた範囲だけ拡大する。
 
 ## 4. 成果物構成
 
@@ -84,8 +90,9 @@ macOSとWindowsの実現方法を、同じ成果IDと達成条件へ対応付け
 | 主対象者、前提知識、判断責任 | audience profile | 本書2、Scenario Bの説明と承認点、worksheet、Peitho deck |
 | 重要成果または達成条件 | 本書7の成果表 | outcome matrix、全scenario、OS別実現例、evidence、Peitho deck |
 | agent / Script / 人の役割方針 | `OUT-07`、`OUT-10`、`OUT-11` | Scenario B、Scenario C、評価指標 |
-| provider、model、CLI、MCP仕様 | OS別実現例と該当claim | `OUT-03`、`OUT-04`、権限境界、model比較 |
-| 費用評価方針 | `OUT-08` | model比較、継続・改善・停止判断、Peitho deck |
+| provider、model、CLI、MCP、Computer Use仕様 | OS別実現例と該当claim | `OUT-03`、`OUT-04`、権限境界、model比較 |
+| 費用評価方針 | `OUT-08` | model比較、料金比較・鮮度監視、継続・改善・停止判断、Peitho deck |
+| Shadow AIまたは小規模統制方針 | `OUT-05`、`OUT-06`、`OUT-11` | 全scenario、権限・log・停止、Peitho deck |
 | sourceまたは内部参考の方針 | Evidence契約 | planning research、全claim table、Peitho deckの出典 |
 
 変更時は、直接更新する正本だけで完了とせず、連動確認した箇所と「影響なし」の箇所をwork noteに残す。
@@ -111,7 +118,7 @@ macOSとWindowsの実現方法を、同じ成果IDと達成条件へ対応付け
 | `OUT-01` | dataのcloud同期 | 必要な端末・担当者から同じ正本へ安全にaccessできる |
 | `OUT-02` | 遠隔からの常時操作 | 場所を問わずagentへ指示し、結果と承認待ちを確認できる |
 | `OUT-03` | model・agentの交換可能性 | 新model導入を全体再構築でなく選択設定の変更として扱える |
-| `OUT-04` | CLI/MCP/API中心の接続 | 特定UIやconnectorだけに業務を閉じず接続方法を交換できる |
+| `OUT-04` | API/CLI/MCPを優先しComputer Useを限定利用する接続 | 構造化経路とGUI操作を使い分け、特定UIやconnectorだけに業務を閉じず接続方法を交換できる |
 | `OUT-05` | project集中管理 | 目的、状態、担当、承認待ち、成果を横断把握できる |
 | `OUT-06` | data・権限・担当の分離 | project間の情報混在と越権を防げる |
 | `OUT-07` | 人・AI・Scriptの役割最適化 | 判断、曖昧な処理、定型処理を適切に割り当てられる |
@@ -201,6 +208,16 @@ macOSとWindowsの実現方法を、同じ成果IDと達成条件へ対応付け
 
 Model切替は独立scenarioにしない。`OUT-03`と`OUT-08`の検証手順として、同じ入力、完了条件、data、権限でquality、費用、所要時間、制約を比較し、採用、限定採用、却下を判断する。
 
+SubscriptionとAPI料金は[AIサービス料金比較・鮮度監視設計](2026-09-04-ai-service-pricing-monitor-design.md)を正本にし、3日ごとの観測値ではなく、人間が承認した値だけをcase studyへ反映する。
+
+### 12.1 実行経路の選択
+
+API、CLI、MCP、Computer Useを同じものとして扱わない。定型処理、batch、検査可能な操作は構造化経路を優先し、APIがない画面、既存SaaS、例外処理だけをComputer Useの候補にする。Computer Useでは対象画面、許可操作、外部送信、認証、停止条件、人間承認を個別に定義する。
+
+### 12.2 小さく統制されたAI組織
+
+初期case studyは、全社展開でなく一つの対象業務と限定したprojectから始める。対象業務、完了条件、data、identity、接続先、read / write、外部送信、承認、log、停止手段が明示されて初めて「閉じた」と表現する。小規模でも無承認、logなし、個人account依存ならShadow AIとして扱う。
+
 ## 13. 調査とdata flow
 
 1. `OUT-01`〜`OUT-12`で判断する内容と、根拠が必要な主要主張を列挙する。
@@ -256,6 +273,9 @@ MacOSの状態は、実機で確認した事実と将来構想を同じclaimで�
 13. 非公開の内部参考が出典、参考文献、source IDに含まれず、固有表現や構成を転用していない。
 14. agent、workflow、Script、人の選択理由が処理特性とriskで説明されている。
 15. 主対象、成果、platform、source方針を変更した場合の連動確認結果がwork noteにある。
+16. API、CLI、MCP、Computer Useの選択理由と権限・停止境界がある。
+17. 小さく統制された単位とShadow AIになる条件が併記されている。
+18. 料金比較はsubscriptionとAPIを分離し、承認済みの鮮度情報を参照している。
 
 ## 17. 非目標
 
@@ -276,4 +296,5 @@ MacOSの状態は、実機で確認した事実と将来構想を同じclaimで�
 - [エージェント組織導入ロードマップ](../../knowledge/materials/agentic-organization-roadmap/README.md)
 - [ロードマップ設計仕様](2026-09-03-agentic-organization-roadmap-design.md)
 - [外部情報の選定方針](../../decisions/2026-09-04-external-source-selection-policy.md)
+- [AIサービス料金比較・鮮度監視 設計](2026-09-04-ai-service-pricing-monitor-design.md)
 - [再調査が必要な旧外部根拠調査](../../planning/research/2026-09-04-agentic-organization-evidence-research.md)

@@ -9,9 +9,13 @@ principle_ids:
   - principle-platform-independent
   - principle-small-scope-learning-loop
   - principle-human-accountability
-source_ids: []
+source_ids:
+  - source-openai-models-live
+  - source-hackerone-ai-security-gap-2026
+  - source-akamai-enterprise-ai-risk-2026
+  - source-reddit-shadow-ai-2026-08
 derived_artifacts: []
-review_triggers: [target-audience-change, roadmap-stage-change, source-policy-change, source-freshness-window-change, web-reception-change]
+review_triggers: [target-audience-change, roadmap-stage-change, source-policy-change, source-freshness-window-change, web-reception-change, pricing-source-change, execution-path-change, shadow-ai-governance-change]
 ---
 
 # 非エンジニア向けエージェント組織導入ロードマップ 設計
@@ -34,9 +38,10 @@ AI provider、model、service の変化を追うこと自体を目的にせず�
 2. **全体像と次の一歩を両立する。** 先に粗い設計図を描き、その中から一度に検証する最小範囲を選ぶ。
 3. **人間が責任を持つ。** AI は提案、実行、検証補助を担えるが、目的、権限、採否、継続、停止の判断は人間が持つ。
 4. **人・AI・Script を使い分ける。** 判断を伴わない routine は可能な限り Script へ移し、AI token は不確実性の高い仕事へ使う。
-5. **provider と connector への依存を抑える。** model 切り替えと CLI、MCP、API を優先し、特定 service の UI だけに運用を閉じない。
+5. **provider と connector への依存を抑える。** model 切り替えと CLI、MCP、API を優先し、特定 service の UI だけに運用を閉じない。APIがない画面や例外処理ではComputer Useを限定利用し、構造化経路との違いを明示する。
 6. **platform 非依存を原則にする。** macOS は実例であり必須条件にしない。Windows などで同じ目的と統制を実現できれば同等と扱う。
 7. **未検証を明示する。** 代替環境や効果を確認していない場合は候補として扱い、再現済みとは表現しない。
+8. **小さく統制してから広げる。** 対象業務、data、identity、接続先、権限、承認、log、停止手段を限定した単位で成果と安全性を観測し、確認できた範囲だけ拡大する。
 
 ## 4. 資料体系
 
@@ -72,9 +77,11 @@ AI provider、model、service の変化を追うこと自体を目的にせず�
 
 - cloud での data 集中管理
 - 遠隔からの agent 操作
-- CLI、MCP、API 中心の接続
+- CLI、MCP、APIを優先し、必要箇所だけComputer Useを使う接続
 - project、担当、権限の分割
+- 小さく統制されたAI組織から段階的に拡大する方法
 - Script による定期処理
+- 3日ごとに公式sourceを確認するAI service料金比較
 - agentic-framework を使った orchestration と集中管理
 
 ### 4.4 ケーススタディ
@@ -95,7 +102,7 @@ Peitho は講義用の派生成果物に使う。Markdown と design の分離�
 | 役割 | 人・AI・Script の担当 | 誰が最終責任を持つか |
 | data | 保存場所、入力元、正本 | AI に見せてよい情報か |
 | 実行環境 | cloud、端末、遠隔操作 | 継続運用できるか |
-| 接続 | CLI、MCP、API、service 連携 | 製品依存を許容できるか |
+| 接続 | CLI、MCP、API、Computer Use、service 連携 | 構造化経路とUI操作をどこで使い分けるか |
 | 境界と統制 | project、担当、権限、承認 | AI が自律実行してよい範囲か |
 | 効果と費用 | 成果、品質、token、定期処理 | 継続、改善、停止のどれを選ぶか |
 
@@ -205,6 +212,8 @@ AI の提案は、少なくとも次の観点で採用、保留、却下を判�
 - 設計原則を変更したら roadmap、pattern、deck の該当箇所を再確認する。
 - macOS 環境の変更は case study だけに閉じ、原則と roadmap を暗黙に変更しない。
 - Codex、Hermes、model、MCP の変更は実装例を更新する。共通原則を変える場合は別の意思決定として扱う。
+- Computer Useの対象画面または権限を変更したら、誤操作、prompt injection、外部送信、停止条件を再確認する。
+- AI serviceの料金・提供条件は[料金比較・鮮度監視設計](2026-09-04-ai-service-pricing-monitor-design.md)に従って確認し、未承認の観測値を正本へ反映しない。
 - Peitho deck は正本 ID と更新時点を記録し、正本との不一致を検査対象にする。
 
 ## 11. 品質確認
@@ -234,7 +243,7 @@ AI の提案は、少なくとも次の観点で採用、保留、却下を判�
 
 ### 12.2 Sourceの選定
 
-[外部情報の選定方針](../../decisions/2026-09-04-external-source-selection-policy.md)を正本とする。社会的な権威性だけで採用せず、現在の実装者・利用者による独立した評価を重視する。二次記事は探索の入口に限り、主要事実は可能な限り元のspecification、release note、repository、原著論文、原投稿へ遡る。
+[外部情報の選定方針](../../decisions/2026-09-04-external-source-selection-policy.md)を正本とする。社会的な権威性だけで採用せず、現在の実装者・利用者による独立した評価を重視する。二次記事は探索の入口に限り、主要事実は可能な限り元のspecification、release note、repository、原著論文、原投稿へ遡る。公開日を示さず継続更新される公式料金pageは、`official-live`の例外と用途別鮮度期限を適用する。
 
 共有PDFは内部参考に限り、資料名、ページ、URL、引用箇所、source IDを出典・参考文献・evidence tableへ記録しない。
 
@@ -254,8 +263,9 @@ sourceが公開・実質更新から6か月未満でない、公開日が確認�
 4. 段階 0 から 2 の判断・課題分解 worksheet
 5. 市江氏の macOS case study
 6. Windows 代替候補の調査と再現性表示
-7. 湯川塾向け Peitho deck
-8. 実地 feedback を反映する更新手順
+7. AI service料金比較と3日ごとの鮮度監視
+8. 湯川塾向け Peitho deck
+9. 実地 feedback を反映する更新手順
 
 ## 14. 非目標
 
@@ -277,6 +287,9 @@ sourceが公開・実質更新から6か月未満でない、公開日が確認�
 - 実行結果から継続、改善、停止、対象拡大のいずれかを選べる。
 - 自分で実装できなくても、AI または専門家へ次の構築・改善を指示できる。
 - 各段階の主要主張について、対応する evidence URL と確認日を追跡できる。
+- API、CLI、MCP、Computer Useの違いと選択理由を説明できる。
+- 小さく統制されたAI組織と、無管理なShadow AIの違いを説明できる。
+- subscriptionとAPI料金を分け、鮮度とsourceを確認して比較できる。
 
 ## 16. 参照
 
@@ -284,4 +297,5 @@ sourceが公開・実質更新から6か月未満でない、公開日が確認�
 - [Peitho Guide](https://peitho.gosu.ke/guide/)
 - [Peitho Writing Decks](https://peitho.gosu.ke/guide/writing-decks/)
 - [agentic-framework 概要](../../knowledge/materials/agentic-framework-overview.md)
+- [AIサービス料金比較・鮮度監視 設計](2026-09-04-ai-service-pricing-monitor-design.md)
 - [知識ベース構造](../../framework/knowledge-base.md)
