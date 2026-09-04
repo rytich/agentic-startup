@@ -1,14 +1,14 @@
 ---
 title: エージェント組織導入ロードマップ全体
 status: draft
-updated: 2026-09-03
+updated: 2026-09-04
 audience_ids: [audience-business-leader-ai-user]
 principle_ids: [principle-business-outcome-first, principle-platform-independent, principle-small-scope-learning-loop, principle-human-accountability]
 stage_ids: [stage-0, stage-1, stage-2, stage-3, stage-4, stage-5, stage-6]
 platform_ids: [platform-neutral]
-source_ids: [claim-stage0-001, claim-stage0-002]
+source_ids: []
 derived_artifacts: []
-review_triggers: [roadmap-stage-change, nist-ai-rmf-revision]
+review_triggers: [roadmap-stage-change, nist-ai-rmf-revision, source-policy-change]
 ---
 
 # エージェント組織導入ロードマップ全体
@@ -66,7 +66,7 @@ review_triggers: [roadmap-stage-change, nist-ai-rmf-revision]
 
 [7領域の初期設計図](worksheets/system-map.md)を一度だけ埋め、`今回検証` とする項目を一つ選びます。
 
-## Evidence
+## Evidence（旧形式・再調査中）
 
 | claim_id | claim | source_url | source_type | checked_at | applies_to | interpretation | review_trigger |
 |---|---|---|---|---|---|---|---|

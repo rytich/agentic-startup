@@ -4,9 +4,9 @@ status: draft
 updated: 2026-09-04
 audience_ids: [audience-business-leader-ai-user]
 principle_ids: [principle-business-outcome-first, principle-platform-independent, principle-human-accountability]
-source_ids: [research-agentic-001, research-agentic-002, research-agentic-003, research-agentic-004, research-agentic-005, research-agentic-006, research-agentic-007, research-agentic-008, research-agentic-009, research-agentic-010, research-agentic-011]
+source_ids: []
 derived_artifacts: []
-review_triggers: [roadmap-outcome-change, target-audience-change, source-policy-change, platform-capability-change, case-study-status-change]
+review_triggers: [roadmap-outcome-change, target-audience-change, source-policy-change, source-freshness-window-change, web-reception-change, platform-capability-change, case-study-status-change]
 ---
 
 # エージェント組織の将来構想ケーススタディ 設計
@@ -204,23 +204,24 @@ Model切替は独立scenarioにしない。`OUT-03`と`OUT-08`の検証手順と
 ## 13. 調査とdata flow
 
 1. `OUT-01`〜`OUT-12`で判断する内容と、根拠が必要な主要主張を列挙する。
-2. 英語圏を含む論文、公的機関、標準、公式技術資料を調査し、適用範囲と制約を記録する。
-3. 内部参考から着想した内容を、外部sourceで独立確認できる事実と本資料の推奨へ分ける。
-4. `OUT-01`〜`OUT-12`の達成条件を確定し、将来構想を成果単位で配置する。
-5. macOSの現在状態をread-onlyで確認する。
-6. `verified-current`と`planned`を分離する。
-7. Windowsの公式手段を調査する。
-8. 成果単位でmacOSとWindowsを比較する。
-9. 3scenarioへ成果IDを対応付ける。
-10. 未達、`blocked`、次の検証を記録する。
-11. 正本ロードマップと双方向linkする。
-12. Peitho deckがclaim IDと成果IDを参照できるようにする。
+2. 調査時点で公開・実質更新から6か月未満の、英語圏を含む一次情報を調査し、日付、適用範囲、制約を記録する。
+3. 採用・推奨候補について、投稿から6か月未満の独立したWeb・SNS上の実利用評価を調査し、肯定、否定、失敗、運用負荷を記録する。
+4. 内部参考から着想した内容を、外部sourceで独立確認できる事実と本資料の推奨へ分ける。
+5. `OUT-01`〜`OUT-12`の達成条件を確定し、将来構想を成果単位で配置する。
+6. macOSの現在状態をread-onlyで確認する。
+7. `verified-current`と`planned`を分離する。
+8. Windowsの公式手段を調査する。
+9. 成果単位でmacOSとWindowsを比較する。
+10. 3scenarioへ成果IDを対応付ける。
+11. 未達、`blocked`、次の検証を記録する。
+12. 正本ロードマップと双方向linkする。
+13. Peitho deckがclaim IDと成果IDを参照できるようにする。
 
 ## 14. Evidence契約
 
 各主張は[ロードマップのEvidence契約](../../knowledge/materials/agentic-organization-roadmap/evidence/README.md)に従う。外部仕様は公式文書を優先し、直接URL、確認日、適用範囲、事実と推論の区別、review triggerを記録する。
 
-英語圏を中心とした初回調査は[エージェント組織資料の外部根拠調査](../../planning/research/2026-09-04-agentic-organization-evidence-research.md)を正本とする。調査で確認した数値は、その研究の対象taskと対象者を越えて一般化しない。
+外部sourceの選定は[外部情報の選定方針](../../decisions/2026-09-04-external-source-selection-policy.md)を正本とする。旧基準の[外部根拠調査](../../planning/research/2026-09-04-agentic-organization-evidence-research.md)は有効なevidenceとして使用せず、新基準で再調査する。
 
 内部参考は資料名、ページ、URL、引用箇所、source IDを記録しない。固有の文章、見出し順、段階名、図表構成、画面例を転用しない。
 
@@ -248,10 +249,13 @@ MacOSの状態は、実機で確認した事実と将来構想を同じclaimで�
 6. 実顧客data、名刺、mail address、credential、secretを含まない。
 7. 正本ロードマップと双方向linkされる。
 8. 全主要主張にevidence URLと確認日がある。
-9. 外部研究の効果量に、対象者、task、環境、limitationがある。
-10. 非公開の内部参考が出典、参考文献、source IDに含まれず、固有表現や構成を転用していない。
-11. agent、workflow、Script、人の選択理由が処理特性とriskで説明されている。
-12. 主対象、成果、platform、source方針を変更した場合の連動確認結果がwork noteにある。
+9. 全sourceの公開・実質更新日が確認され、調査時点で6か月未満である。
+10. 採用・推奨claimに、投稿から6か月未満の独立したWeb・SNS上の実利用評価がある。
+11. 肯定的評価だけでなく、失敗、制約、運用負荷を調査している。
+12. 外部研究の効果量に、対象者、task、環境、limitationがある。
+13. 非公開の内部参考が出典、参考文献、source IDに含まれず、固有表現や構成を転用していない。
+14. agent、workflow、Script、人の選択理由が処理特性とriskで説明されている。
+15. 主対象、成果、platform、source方針を変更した場合の連動確認結果がwork noteにある。
 
 ## 17. 非目標
 
@@ -271,4 +275,5 @@ MacOSの状態は、実機で確認した事実と将来構想を同じclaimで�
 
 - [エージェント組織導入ロードマップ](../../knowledge/materials/agentic-organization-roadmap/README.md)
 - [ロードマップ設計仕様](2026-09-03-agentic-organization-roadmap-design.md)
-- [外部根拠調査](../../planning/research/2026-09-04-agentic-organization-evidence-research.md)
+- [外部情報の選定方針](../../decisions/2026-09-04-external-source-selection-policy.md)
+- [再調査が必要な旧外部根拠調査](../../planning/research/2026-09-04-agentic-organization-evidence-research.md)

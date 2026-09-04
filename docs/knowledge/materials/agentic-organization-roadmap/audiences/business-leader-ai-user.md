@@ -1,14 +1,14 @@
 ---
 title: 対象者プロファイル - AI利用経験のある事業責任者
-status: active
-updated: 2026-09-03
+status: draft
+updated: 2026-09-04
 audience_ids: [audience-business-leader-ai-user]
 principle_ids: [principle-human-accountability]
 stage_ids: [stage-0, stage-1, stage-2, stage-3, stage-4, stage-5, stage-6]
 platform_ids: [platform-neutral]
-source_ids: [claim-audience-001, claim-audience-002]
+source_ids: []
 derived_artifacts: []
-review_triggers: [audience-profile-change, oecd-ai-principles-change, nist-ai-rmf-revision]
+review_triggers: [audience-profile-change, oecd-ai-principles-change, nist-ai-rmf-revision, source-policy-change]
 ---
 
 # 対象者プロファイル - AI利用経験のある事業責任者
@@ -46,7 +46,7 @@ ID: `audience-business-leader-ai-user`
 
 前提知識、提供する支援、到達点のいずれかを変えた場合、`audience-business-leader-ai-user` を持つ Stage、ワークシート、ケーススタディ、Peitho deck を再確認します。技術者向けや現場担当者向けへ対象を変える場合は、既存 ID の意味を上書きせず新しい対象者 ID を作ります。
 
-## Evidence
+## Evidence（旧形式・再調査中）
 
 | claim_id | claim | source_url | source_type | checked_at | applies_to | interpretation | review_trigger |
 |---|---|---|---|---|---|---|---|

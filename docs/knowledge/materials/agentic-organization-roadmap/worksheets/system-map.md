@@ -1,14 +1,14 @@
 ---
 title: Worksheet - 7領域の初期設計図
-status: active
-updated: 2026-09-03
+status: draft
+updated: 2026-09-04
 audience_ids: [audience-business-leader-ai-user]
 principle_ids: [principle-business-outcome-first, principle-small-scope-learning-loop]
 stage_ids: [stage-0]
 platform_ids: [platform-neutral]
-source_ids: [claim-stage0-002]
+source_ids: []
 derived_artifacts: []
-review_triggers: [stage-0-change]
+review_triggers: [stage-0-change, source-policy-change]
 ---
 
 # Worksheet - 7領域の初期設計図
@@ -37,7 +37,7 @@ review_triggers: [stage-0-change]
 
 `事業目的`の中から一つを選び、期待する成果を一文で書きます。
 
-## Evidence
+## Evidence（旧形式・再調査中）
 
 | claim_id | claim | source_url | source_type | checked_at | applies_to | interpretation | review_trigger |
 |---|---|---|---|---|---|---|---|

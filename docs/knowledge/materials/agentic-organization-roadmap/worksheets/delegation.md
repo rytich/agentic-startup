@@ -1,14 +1,14 @@
 ---
 title: Worksheet - 一作業の委任定義
-status: active
-updated: 2026-09-03
+status: draft
+updated: 2026-09-04
 audience_ids: [audience-business-leader-ai-user]
 principle_ids: [principle-small-scope-learning-loop, principle-human-accountability]
 stage_ids: [stage-2]
 platform_ids: [platform-neutral]
-source_ids: [claim-stage2-001, claim-stage2-002]
+source_ids: []
 derived_artifacts: []
-review_triggers: [stage-2-change, owasp-llm-top10-change]
+review_triggers: [stage-2-change, source-policy-change]
 ---
 
 # Worksheet - 一作業の委任定義
@@ -49,7 +49,7 @@ review_triggers: [stage-2-change, owasp-llm-top10-change]
 
 最初の試行では、許可する操作を一つにし、読み取りまたは下書き作成から始めます。
 
-## Evidence
+## Evidence（旧形式・再調査中）
 
 | claim_id | claim | source_url | source_type | checked_at | applies_to | interpretation | review_trigger |
 |---|---|---|---|---|---|---|---|
