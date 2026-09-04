@@ -31,3 +31,9 @@
 - 実装、fixture test、live read-only確認。
 - GitHub Actionsの権限承認と有効化。
 - 残り11 sourceのadapter調査・実装。
+
+## 完了処理
+
+- 計画資料の統合はGitHub Issue #1、PR #2で追跡する。
+- 客観レビュー、merge、Issue closeは`complete-task.sh`の標準パイプラインで実行する。
+- Phase 1実装は本PRへ混在させず、計画内のTask 0で新しいIssueとbranchを用意する。
