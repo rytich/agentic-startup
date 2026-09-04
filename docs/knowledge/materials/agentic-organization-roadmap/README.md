@@ -1,19 +1,25 @@
 ---
 title: エージェント組織導入ロードマップ
 status: draft
-updated: 2026-09-03
+updated: 2026-09-04
 audience_ids: [audience-business-leader-ai-user]
 principle_ids: [principle-business-outcome-first, principle-platform-independent, principle-small-scope-learning-loop, principle-human-accountability]
 stage_ids: [stage-0]
 platform_ids: [platform-neutral]
-source_ids: [claim-audience-001, claim-stage0-001]
+source_ids: []
 derived_artifacts: []
-review_triggers: [audience-profile-change, roadmap-stage-change]
+review_triggers: [audience-profile-change, roadmap-stage-change, source-policy-change]
 ---
 
 # エージェント組織導入ロードマップ
 
+> **Evidence再調査中:** 2026-09-04に外部情報の選定方針を変更しました。既存claimは公開・更新から6か月未満の一次情報と独立したWeb・SNS評価を満たすまで、有効な根拠として使用しません。
+
 AI の新機能を追い続けることではなく、事業課題へ安全かつ再現可能に活用するための正本です。技術に詳しくなくても、全体像を描き、今回試す範囲を一つに絞り、結果を判断できることを目指します。
+
+## 一枚で見る全体像
+
+![エージェント組織 実現への全体設計図](assets/agentic-organization-overview-v1.png)
 
 ## 読む順序
 
@@ -40,7 +46,7 @@ AI の新機能を追い続けることではなく、事業課題へ安全か�
 - ケーススタディ: 市江氏の macOS 環境と、今後調査する Windows 代替
 - Peitho deck: 正本から派生する発表資料。独自の判断基準を追加しない
 
-## Evidence
+## Evidence（旧形式・再調査中）
 
 主張と出典の書き方は [evidence contract](evidence/README.md) に従います。
 

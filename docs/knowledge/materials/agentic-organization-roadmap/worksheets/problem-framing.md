@@ -1,14 +1,14 @@
 ---
 title: Worksheet - 事業課題を一成果へ絞る
-status: active
-updated: 2026-09-03
+status: draft
+updated: 2026-09-04
 audience_ids: [audience-business-leader-ai-user]
 principle_ids: [principle-business-outcome-first, principle-small-scope-learning-loop, principle-human-accountability]
 stage_ids: [stage-1]
 platform_ids: [platform-neutral]
-source_ids: [claim-stage1-001, claim-stage1-002]
+source_ids: []
 derived_artifacts: []
-review_triggers: [stage-1-change]
+review_triggers: [stage-1-change, source-policy-change]
 ---
 
 # Worksheet - 事業課題を一成果へ絞る
@@ -41,7 +41,7 @@ review_triggers: [stage-1-change]
 
 複数の期待成果、部門、データ源、権限変更が同時に入る場合は、別のワークシートへ分けます。
 
-## Evidence
+## Evidence（旧形式・再調査中）
 
 | claim_id | claim | source_url | source_type | checked_at | applies_to | interpretation | review_trigger |
 |---|---|---|---|---|---|---|---|

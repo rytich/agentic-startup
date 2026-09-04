@@ -1,14 +1,14 @@
 ---
 title: Stage 4 - 人・AI・Scriptの役割を分ける
-status: active
-updated: 2026-09-03
+status: draft
+updated: 2026-09-04
 audience_ids: [audience-business-leader-ai-user]
 principle_ids: [principle-human-accountability, principle-small-scope-learning-loop]
 stage_ids: [stage-4]
 platform_ids: [platform-neutral]
-source_ids: [claim-stage4-001, claim-stage4-002, claim-stage4-003]
+source_ids: []
 derived_artifacts: []
-review_triggers: [nist-ai-rmf-revision, owasp-llm-top10-change, role-policy-change]
+review_triggers: [nist-ai-rmf-revision, owasp-llm-top10-change, role-policy-change, source-policy-change]
 ---
 
 # Stage 4 - 人・AI・Scriptの役割を分ける
@@ -43,7 +43,7 @@ review_triggers: [nist-ai-rmf-revision, owasp-llm-top10-change, role-policy-chan
 
 Stage 3で再現した作業を、判断、AI処理、定型処理の3つに色分けします。
 
-## Evidence
+## Evidence（旧形式・再調査中）
 
 | claim_id | claim | source_url | source_type | checked_at | applies_to | interpretation | review_trigger |
 |---|---|---|---|---|---|---|---|

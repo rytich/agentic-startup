@@ -1,7 +1,7 @@
 ---
 title: 非エンジニア向けエージェント組織導入ロードマップ 設計
-status: approved
-updated: 2026-09-03
+status: draft
+updated: 2026-09-04
 audience_ids:
   - audience-business-leader-ai-user
 principle_ids:
@@ -9,6 +9,13 @@ principle_ids:
   - principle-platform-independent
   - principle-small-scope-learning-loop
   - principle-human-accountability
+source_ids:
+  - source-openai-models-live
+  - source-hackerone-ai-security-gap-2026
+  - source-akamai-enterprise-ai-risk-2026
+  - source-reddit-shadow-ai-2026-08
+derived_artifacts: []
+review_triggers: [target-audience-change, roadmap-stage-change, source-policy-change, source-freshness-window-change, web-reception-change, pricing-source-change, execution-path-change, shadow-ai-governance-change]
 ---
 
 # 非エンジニア向けエージェント組織導入ロードマップ 設計
@@ -31,9 +38,10 @@ AI provider、model、service の変化を追うこと自体を目的にせず�
 2. **全体像と次の一歩を両立する。** 先に粗い設計図を描き、その中から一度に検証する最小範囲を選ぶ。
 3. **人間が責任を持つ。** AI は提案、実行、検証補助を担えるが、目的、権限、採否、継続、停止の判断は人間が持つ。
 4. **人・AI・Script を使い分ける。** 判断を伴わない routine は可能な限り Script へ移し、AI token は不確実性の高い仕事へ使う。
-5. **provider と connector への依存を抑える。** model 切り替えと CLI、MCP、API を優先し、特定 service の UI だけに運用を閉じない。
+5. **provider と connector への依存を抑える。** model 切り替えと CLI、MCP、API を優先し、特定 service の UI だけに運用を閉じない。APIがない画面や例外処理ではComputer Useを限定利用し、構造化経路との違いを明示する。
 6. **platform 非依存を原則にする。** macOS は実例であり必須条件にしない。Windows などで同じ目的と統制を実現できれば同等と扱う。
 7. **未検証を明示する。** 代替環境や効果を確認していない場合は候補として扱い、再現済みとは表現しない。
+8. **小さく統制してから広げる。** 対象業務、data、identity、接続先、権限、承認、log、停止手段を限定した単位で成果と安全性を観測し、確認できた範囲だけ拡大する。
 
 ## 4. 資料体系
 
@@ -69,9 +77,11 @@ AI provider、model、service の変化を追うこと自体を目的にせず�
 
 - cloud での data 集中管理
 - 遠隔からの agent 操作
-- CLI、MCP、API 中心の接続
+- CLI、MCP、APIを優先し、必要箇所だけComputer Useを使う接続
 - project、担当、権限の分割
+- 小さく統制されたAI組織から段階的に拡大する方法
 - Script による定期処理
+- 3日ごとに公式sourceを確認するAI service料金比較
 - agentic-framework を使った orchestration と集中管理
 
 ### 4.4 ケーススタディ
@@ -92,7 +102,7 @@ Peitho は講義用の派生成果物に使う。Markdown と design の分離�
 | 役割 | 人・AI・Script の担当 | 誰が最終責任を持つか |
 | data | 保存場所、入力元、正本 | AI に見せてよい情報か |
 | 実行環境 | cloud、端末、遠隔操作 | 継続運用できるか |
-| 接続 | CLI、MCP、API、service 連携 | 製品依存を許容できるか |
+| 接続 | CLI、MCP、API、Computer Use、service 連携 | 構造化経路とUI操作をどこで使い分けるか |
 | 境界と統制 | project、担当、権限、承認 | AI が自律実行してよい範囲か |
 | 効果と費用 | 成果、品質、token、定期処理 | 継続、改善、停止のどれを選ぶか |
 
@@ -202,6 +212,8 @@ AI の提案は、少なくとも次の観点で採用、保留、却下を判�
 - 設計原則を変更したら roadmap、pattern、deck の該当箇所を再確認する。
 - macOS 環境の変更は case study だけに閉じ、原則と roadmap を暗黙に変更しない。
 - Codex、Hermes、model、MCP の変更は実装例を更新する。共通原則を変える場合は別の意思決定として扱う。
+- Computer Useの対象画面または権限を変更したら、誤操作、prompt injection、外部送信、停止条件を再確認する。
+- AI serviceの料金・提供条件は[料金比較・鮮度監視設計](2026-09-04-ai-service-pricing-monitor-design.md)に従って確認し、未承認の観測値を正本へ反映しない。
 - Peitho deck は正本 ID と更新時点を記録し、正本との不一致を検査対象にする。
 
 ## 11. 品質確認
@@ -222,41 +234,26 @@ AI の提案は、少なくとも次の観点で採用、保留、却下を判�
 
 1. その step で対象者が判断する内容を列挙する。
 2. 判断に必要な事実、推奨、事例、未確定事項を分ける。
-3. 公式文書、公的機関、標準、一次情報を優先して調査する。
-4. 主要な主張と情報 source の対応を記録する。
-5. 複数 source から導く内容は、事実ではなく推論または本 roadmap の推奨として明示する。
-6. 出典付きの本文、worksheet、slide を作成する。
-7. URL、確認日、対象 version、未検証範囲を review する。
+3. 調査日から6暦月前の日付を算出し、公開・実質更新から6か月未満の一次情報を探す。
+4. 採用・推奨候補ごとに、投稿から6か月未満の独立したWeb・SNS上の実利用評価を探す。
+5. 肯定、否定、失敗、制約、運用負荷を整理する。
+6. 一次情報の事実、実利用評価、本roadmapの推論を分ける。
+7. 出典付きの本文、worksheet、slideを作成する。
+8. sourceの日付、URL、確認日、対象version、実利用評価、未検証範囲をreviewする。
 
-### 12.2 Source の優先順位
+### 12.2 Sourceの選定
 
-1. 法令、規制当局、公的機関、標準化団体の一次情報
-2. product、provider、open source project の公式 documentation と repository
-3. 原著論文、公式事例、当事者による技術資料
-4. 信頼できる解説、比較、報道
+[外部情報の選定方針](../../decisions/2026-09-04-external-source-selection-policy.md)を正本とする。社会的な権威性だけで採用せず、現在の実装者・利用者による独立した評価を重視する。二次記事は探索の入口に限り、主要事実は可能な限り元のspecification、release note、repository、原著論文、原投稿へ遡る。公開日を示さず継続更新される公式料金pageは、`official-live`の例外と用途別鮮度期限を適用する。
 
-二次情報だけで安全性、権限、費用、製品仕様を断定しない。provider や product の現行仕様は変更されうるため、artifact 作成時に再確認する。
+共有PDFは内部参考に限り、資料名、ページ、URL、引用箇所、source IDを出典・参考文献・evidence tableへ記録しない。
 
 ### 12.3 Artifact に残す evidence
 
-各 artifact は、本文の該当箇所に近い位置で出典 URL を示し、末尾に少なくとも次を含む evidence table を置く。
-
-| Field | 内容 |
-|---|---|
-| `claim_id` | 根拠と結び付ける主張 ID |
-| `claim` | 資料で述べる事実または推奨 |
-| `source_url` | 根拠を確認できる直接 URL |
-| `source_type` | official、public、standard、paper、case、secondary |
-| `checked_at` | 確認日 |
-| `applies_to` | 対象 version、platform、audience、stage |
-| `interpretation` | source が直接示す事実と、本資料の推論の区別 |
-| `review_trigger` | 再確認する条件 |
-
-URL は検索結果ではなく、主張を直接支える page、document、repository、release へ link する。access 不能な URL、出典と無関係な top page、AI の回答そのものを evidence にしない。
+各artifactは、本文の該当箇所に近い位置で一次情報と実利用評価のURLを示し、[ロードマップのEvidence契約](../../knowledge/materials/agentic-organization-roadmap/evidence/README.md)が定めるfieldを持つevidence tableを置く。
 
 ### 12.4 完了 gate
 
-根拠が必要な主要主張に URL がない、URL と主張の対応が不明、変更されやすい仕様の確認日がない、未検証の推論が事実として書かれている場合、その step は draft のままとする。Peitho deck も正本の `claim_id` と source を引き継ぐ。
+sourceが公開・実質更新から6か月未満でない、公開日が確認できない、主要事実の一次情報がない、採用・推奨claimに独立した実利用評価がない、未検証の推論が事実として書かれている場合、そのstepは`draft`のままとする。Peitho deckも正本のclaim ID、一次情報URL、実利用評価URL、鮮度情報を引き継ぐ。
 
 ## 13. 初期提供順
 
@@ -266,8 +263,9 @@ URL は検索結果ではなく、主張を直接支える page、document、rep
 4. 段階 0 から 2 の判断・課題分解 worksheet
 5. 市江氏の macOS case study
 6. Windows 代替候補の調査と再現性表示
-7. 湯川塾向け Peitho deck
-8. 実地 feedback を反映する更新手順
+7. AI service料金比較と3日ごとの鮮度監視
+8. 湯川塾向け Peitho deck
+9. 実地 feedback を反映する更新手順
 
 ## 14. 非目標
 
@@ -289,6 +287,9 @@ URL は検索結果ではなく、主張を直接支える page、document、rep
 - 実行結果から継続、改善、停止、対象拡大のいずれかを選べる。
 - 自分で実装できなくても、AI または専門家へ次の構築・改善を指示できる。
 - 各段階の主要主張について、対応する evidence URL と確認日を追跡できる。
+- API、CLI、MCP、Computer Useの違いと選択理由を説明できる。
+- 小さく統制されたAI組織と、無管理なShadow AIの違いを説明できる。
+- subscriptionとAPI料金を分け、鮮度とsourceを確認して比較できる。
 
 ## 16. 参照
 
@@ -296,4 +297,5 @@ URL は検索結果ではなく、主張を直接支える page、document、rep
 - [Peitho Guide](https://peitho.gosu.ke/guide/)
 - [Peitho Writing Decks](https://peitho.gosu.ke/guide/writing-decks/)
 - [agentic-framework 概要](../../knowledge/materials/agentic-framework-overview.md)
+- [AIサービス料金比較・鮮度監視 設計](2026-09-04-ai-service-pricing-monitor-design.md)
 - [知識ベース構造](../../framework/knowledge-base.md)

@@ -1,14 +1,14 @@
 ---
 title: Stage 6 - 品質と費用を最適化する
-status: active
-updated: 2026-09-03
+status: draft
+updated: 2026-09-04
 audience_ids: [audience-business-leader-ai-user]
 principle_ids: [principle-business-outcome-first, principle-small-scope-learning-loop]
 stage_ids: [stage-6]
 platform_ids: [platform-neutral]
-source_ids: [claim-stage6-001, claim-stage6-002]
+source_ids: []
 derived_artifacts: [worksheet-evaluation]
-review_triggers: [finops-framework-change, ai-cost-guidance-change, stage-6-change]
+review_triggers: [finops-framework-change, ai-cost-guidance-change, stage-6-change, source-policy-change]
 ---
 
 # Stage 6 - 品質と費用を最適化する
@@ -44,7 +44,7 @@ Stage 6は終点ではありません。[評価ワークシート](../worksheets
 
 直近一件について、得られた成果、人の確認時間、AI/service費を記録し、4分岐を一つ選びます。
 
-## Evidence
+## Evidence（旧形式・再調査中）
 
 | claim_id | claim | source_url | source_type | checked_at | applies_to | interpretation | review_trigger |
 |---|---|---|---|---|---|---|---|
