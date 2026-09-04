@@ -17,6 +17,10 @@ review_triggers: [audience-profile-change, roadmap-stage-change, source-policy-c
 
 AI の新機能を追い続けることではなく、事業課題へ安全かつ再現可能に活用するための正本です。技術に詳しくなくても、全体像を描き、今回試す範囲を一つに絞り、結果を判断できることを目指します。
 
+## 一枚で見る全体像
+
+![エージェント組織 実現への全体設計図](assets/agentic-organization-overview-v1.png)
+
 ## 読む順序
 
 1. [対象者プロファイル](audiences/business-leader-ai-user.md)

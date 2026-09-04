@@ -62,3 +62,15 @@
 ### 追加成果物
 
 - [AIサービス料金比較・鮮度監視 設計](../superpowers/specs/2026-09-04-ai-service-pricing-monitor-design.md)
+
+## 2026-09-04 一枚図の作成
+
+- 非エンジニアが現在までの設計を一目で把握できる16:9の日本語infographicをImageGenで作成した。
+- 事業課題、人・AI・Script、agentic-frameworkによる集中管理、cloud同期、data・権限・承認・log・停止を一つのflowに配置した。
+- API・CLI・MCPとComputer Use、3日ごとの料金確認、人間承認、新規候補の手動追加を同じ図へ反映した。
+- 「小さく試す→観測する→承認する→広げる」と、名刺からSFA、情報収集、提案・日程、人間承認、mailまでの連携例を掲載した。
+- macOSは実例、Windowsは同じ成果と統制を再現する対象であることを脚注にした。
+
+### 画像成果物
+
+- [エージェント組織 実現への全体設計図](../knowledge/materials/agentic-organization-roadmap/assets/agentic-organization-overview-v1.png)
