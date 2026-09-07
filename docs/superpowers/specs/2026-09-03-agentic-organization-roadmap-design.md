@@ -1,7 +1,7 @@
 ---
 title: 非エンジニア向けエージェント組織導入ロードマップ 設計
 status: draft
-updated: 2026-09-04
+updated: 2026-09-05
 audience_ids:
   - audience-business-leader-ai-user
 principle_ids:
@@ -14,6 +14,11 @@ source_ids:
   - source-hackerone-ai-security-gap-2026
   - source-akamai-enterprise-ai-risk-2026
   - source-reddit-shadow-ai-2026-08
+  - source-microsoft-wti-2026-05-05
+  - source-microsoft-goals-2026-04
+  - source-google-delegation-2026-08-22
+  - source-span-agent-effectiveness-2026-07
+  - source-simonwillison-claude-code-2026-07-21
 derived_artifacts: []
 review_triggers: [target-audience-change, roadmap-stage-change, source-policy-change, source-freshness-window-change, web-reception-change, pricing-source-change, execution-path-change, shadow-ai-governance-change]
 ---
@@ -215,6 +220,7 @@ AI の提案は、少なくとも次の観点で採用、保留、却下を判�
 - Computer Useの対象画面または権限を変更したら、誤操作、prompt injection、外部送信、停止条件を再確認する。
 - AI serviceの料金・提供条件は[料金比較・鮮度監視設計](2026-09-04-ai-service-pricing-monitor-design.md)に従って確認し、未承認の観測値を正本へ反映しない。
 - Peitho deck は正本 ID と更新時点を記録し、正本との不一致を検査対象にする。
+- 質問・判断・次の依頼の構造を変えたら、`management-loop-change`を持つroadmap、Stage 1/2、worksheet、Peitho deckを再確認する。
 
 ## 11. 品質確認
 
@@ -286,6 +292,7 @@ sourceが公開・実質更新から6か月未満でない、公開日が確認�
 - 人、AI、Script の役割と人間の承認境界を説明できる。
 - 実行結果から継続、改善、停止、対象拡大のいずれかを選べる。
 - 自分で実装できなくても、AI または専門家へ次の構築・改善を指示できる。
+- 必要十分な背景と目的を渡し、質問の結果を事実・推論・不足情報に分け、その判断から次の依頼を`What / Why / How / Done`で作れる。
 - 各段階の主要主張について、対応する evidence URL と確認日を追跡できる。
 - API、CLI、MCP、Computer Useの違いと選択理由を説明できる。
 - 小さく統制されたAI組織と、無管理なShadow AIの違いを説明できる。

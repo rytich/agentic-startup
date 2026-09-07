@@ -1,14 +1,14 @@
 ---
 title: Worksheet - 事業課題を一成果へ絞る
 status: draft
-updated: 2026-09-04
+updated: 2026-09-05
 audience_ids: [audience-business-leader-ai-user]
 principle_ids: [principle-business-outcome-first, principle-small-scope-learning-loop, principle-human-accountability]
 stage_ids: [stage-1]
 platform_ids: [platform-neutral]
-source_ids: []
+source_ids: [source-microsoft-goals-2026-04, source-span-agent-effectiveness-2026-07]
 derived_artifacts: []
-review_triggers: [stage-1-change, source-policy-change]
+review_triggers: [management-loop-change, source-age-6-months, stage-1-change, source-policy-change]
 ---
 
 # Worksheet - 事業課題を一成果へ絞る
@@ -22,6 +22,15 @@ review_triggers: [stage-1-change, source-policy-change]
 - 確認する期間:
 - 今回の対象外:
 - 最終責任者:
+
+## AIへ何を尋ねるか
+
+- この質問で判断したいこと:
+- AIへ渡す既知の事実:
+- AIへ渡す必要がない情報:
+- 求める根拠・source:
+- 回答で分けてほしいもの: `事実 / 推論 / 不足情報`
+- 回答後に選ぶ行動: `採用 / 保留 / 却下`
 
 ## 選択肢
 
@@ -41,13 +50,13 @@ review_triggers: [stage-1-change, source-policy-change]
 
 複数の期待成果、部門、データ源、権限変更が同時に入る場合は、別のワークシートへ分けます。
 
-## Evidence（旧形式・再調査中）
+## Evidence
 
-| claim_id | claim | source_url | source_type | checked_at | applies_to | interpretation | review_trigger |
-|---|---|---|---|---|---|---|---|
-| claim-stage1-001 | AI の能力・限界と判断に関係する情報を理解可能にする | https://oecd.ai/en/dashboards/ai-principles/P7 | public | 2026-09-03 | worksheet-problem-framing | OECD 原則を選択肢比較へ具体化した roadmap recommendation | oecd-ai-principles-change |
-| claim-stage1-002 | 知識限界、監督、利用範囲を文書化して判断を支援する | https://airc.nist.gov/airmf-resources/airmf/5-sec-core/ | public | 2026-09-03 | worksheet-problem-framing | NIST Map の要素を課題整理欄へ変換 | nist-ai-rmf-revision |
+| claim_id | claim | primary_source_url | source_type | source_published_or_updated_at | observed_at | source_fingerprint | checked_at | reception_urls | reception_published_at | reception_signal | reception_summary | applies_to | interpretation | review_trigger |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| claim-management-loop-001 | 明確な目的と質問を持ち、AIの結果を人間が判断して次の行動へつなぐ | https://www.microsoft.com/en-us/research/wp-content/uploads/2026/04/2026-goals-as-first-class-abstractions-in-human-ai-collaboration-AutomationXP26_paper_0982.pdf | paper | 2026-04-14 | — | — | 2026-09-05 | https://www.span.app/research/agent-effectiveness-july2026 | 2026-07 | positive | 明確な依頼と検証可能な環境が少ない手戻りと関連。ただし因果関係は未証明 | worksheet-problem-framing, audience-business-leader-ai-user | 記入欄への変換は本資料の推論 | management-loop-change, source-age-6-months |
 
 ## 関連
 
 - [Stage 1](../stages/01-decide.md)
+- [マネジメントループ調査](../../../../planning/research/2026-09-05-agent-management-loop.md)
