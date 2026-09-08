@@ -32,6 +32,18 @@ uv --version
 git --version
 ```
 
+## 実行中の方向修正（steering）
+
+対応環境にON/OFF設定がある場合はONを推奨し、作業中の補足・軌道修正を標準運用にする。標準で利用できる環境では追加設定せず活用する。背景・変更理由・維持する条件を伝え、返答や成果物で反映を確認する。
+
+2026-09-08のローカル確認では、`codex-cli 0.147.0`の`codex features list`は`steer removed true`を返した。この環境へ旧feature flagの有効化コマンドを案内しない。この表示だけから、desktopの設定状態やすべてのmodelでの挙動は断定しない。
+
+[Codex CLI公式資料](https://learn.chatgpt.com/docs/codex/cli)は実行中の方向修正を案内している（確認日: 2026-09-08）。端末ごとにCLI/アプリのバージョンと操作方法を確認し、読み取り・下書きの作業で途中修正が反映されるか確かめる。未確認のWindows・hermes構成へ同じ設定手順を転用しない。
+
+実行前承認は維持する。途中メッセージを送っただけで実行中操作が停止・取消されたとは扱わない。推奨理由・未検証事項は[マネジメントループ調査](../planning/research/2026-09-05-agent-management-loop.md#steeringの追加確認2026-09-08)、記入項目は[委任ワークシート](../knowledge/materials/agentic-organization-roadmap/worksheets/delegation.md)を参照。
+
+更新トリガー: `steering-capability-change`（CLI/アプリ/modelの対応、設定名、反映タイミングの変更）。
+
 ## Node.js
 
 context-mode には新しい Node.js が必要。Homebrew Node または Codex bundled Node など、動作確認済みの Node を使う。
