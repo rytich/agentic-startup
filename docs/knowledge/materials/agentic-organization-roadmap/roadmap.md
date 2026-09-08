@@ -1,14 +1,14 @@
 ---
 title: エージェント組織導入ロードマップ全体
 status: draft
-updated: 2026-09-05
+updated: 2026-09-08
 audience_ids: [audience-business-leader-ai-user]
 principle_ids: [principle-business-outcome-first, principle-platform-independent, principle-small-scope-learning-loop, principle-human-accountability]
 stage_ids: [stage-0, stage-1, stage-2, stage-3, stage-4, stage-5, stage-6]
 platform_ids: [platform-neutral]
 source_ids: [source-microsoft-wti-2026-05-05, source-microsoft-goals-2026-04, source-google-delegation-2026-08-22, source-span-agent-effectiveness-2026-07, source-simonwillison-claude-code-2026-07-21]
 derived_artifacts: [presentation-yukawa-closing-management-loop]
-review_triggers: [roadmap-stage-change, management-loop-change, source-policy-change]
+review_triggers: [roadmap-stage-change, management-loop-change, steering-capability-change, source-policy-change]
 ---
 
 # エージェント組織導入ロードマップ全体
@@ -61,6 +61,8 @@ review_triggers: [roadmap-stage-change, management-loop-change, source-policy-ch
 Microsoftの2026年調査は、高度なAI利用能力を、AIへ指示すること、出力を判断すること、そこから学ぶことの組み合わせとして扱い、明確な意図と仕事の設計を重視しています。[Microsoft 2026 Work Trend Index](https://www.microsoft.com/en-us/worklab/work-trend-index/agents-human-agency-and-the-opportunity-for-every-organization) Google Cloudは、委任を検証可能な作業へ分解し、渡す情報を正確・関連的・統制可能に保ち、主観判断が必要な箇所へ人間を配置する考え方を示しています。[How agents can delegate better](https://cloud.google.com/blog/products/ai-machine-learning/how-agents-can-delegate-better)
 
 この4段階と「人間のマネジメントと同じ構造」という表現は、各sourceの直接的な文言ではなく、本ロードマップの対象者向けに再構成した推奨です。根拠の採否と制約は[マネジメントループ調査](../../../planning/research/2026-09-05-agent-management-loop.md)に記録しています。
+
+実行中にも補足・方向修正できるよう、対応環境ではsteeringのONを推奨します。設定不要の環境では標準機能を活用します。理由と変更点を伝え、反映を確かめるところまでを管理loopに含めます。これは本資料の運用方針です。具体例と承認境界は[Stage 2](stages/02-delegate.md#実行中にも方向を修正するsteering)を参照してください。
 
 ## 現在地の表し方
 

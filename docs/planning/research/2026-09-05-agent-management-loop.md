@@ -1,12 +1,12 @@
 ---
 title: AIへの質問・判断・次の依頼をつなぐマネジメントループ調査
 status: active
-updated: 2026-09-05
+updated: 2026-09-08
 audience_ids: [audience-business-leader-ai-user]
 principle_ids: [principle-business-outcome-first, principle-small-scope-learning-loop, principle-human-accountability]
 source_ids: [source-microsoft-wti-2026-05-05, source-microsoft-goals-2026-04, source-google-delegation-2026-08-22, source-span-agent-effectiveness-2026-07, source-simonwillison-claude-code-2026-07-21]
 derived_artifacts: [claim-management-loop-001, claim-management-loop-002, presentation-yukawa-closing-management-loop]
-review_triggers: [source-age-6-months, management-loop-change, audience-profile-change, source-policy-change]
+review_triggers: [source-age-6-months, management-loop-change, steering-capability-change, audience-profile-change, source-policy-change]
 ---
 
 # AIへの質問・判断・次の依頼をつなぐマネジメントループ調査
@@ -56,6 +56,15 @@ review_triggers: [source-age-6-months, management-loop-change, audience-profile-
 
 この循環を「良い人間のマネジメントと同じ構造」と説明することは妥当である。ただし、AIを人間と同一視しない。AIには組織の暗黙知、継続的な責任、現実世界の権限感覚が自動では備わらないため、参照する情報、許可・禁止、承認、上限、完了条件をより明示する。
 
+## steeringの追加確認（2026-09-08）
+
+- **選択した方針:** ユーザーの「steeringのonも推奨」という依頼と設計承認に基づき、対応環境に設定がある場合はONを推奨する。標準で利用できる場合は追加設定せず活用する。理由は、作業の途中で前提・範囲のずれを指摘し、管理loopを回せるようにするため。
+- **公式情報:** [Codex CLI](https://learn.chatgpt.com/docs/codex/cli)の「Keep the coding loop in your terminal」は実行中の方向修正を案内している。source ID: `source-openai-codex-cli-steering`、checked_at: `2026-09-08`。公開・実質更新日は確認できていないため、6か月未満の研究・評価evidenceとしては採用せず、現行の機能説明の参照先として記録する。
+- **ローカル観測:** 同日、`codex --version`は`codex-cli 0.147.0`、`codex features list`は`steer removed true`を返した。旧flagをONにする手順は掲載しない。desktop設定の状態や全modelでの挙動をこの出力から推定しない。
+- **APIと製品の区別:** [OpenAI Responses APIのsteering仕様](https://developers.openai.com/api/reference/cli/resources/beta/subresources/responses)は前回調査で確認したAPI層の参考情報。APIの対応条件や受付・反映イベントを、そのままCodex UIの仕様として説明しない。
+- **評価と未検証:** steering固有の独立したWeb/SNS実利用評価、費用対効果、Windows・hermesでの再現は未検証。過去の一般的なfeedback loopの評価をsteering固有の効果の証拠として流用しない。ON推奨はユーザー指定の運用方針であり、一般効果の実証claimにはしない。資料はdraftを維持する。
+- **確認方法:** 読み取り・下書きの小作業で、実行中に対象範囲を修正し、返答と成果物が修正に沿うか観測する。今回この実利用試験は未実施。修正の送信だけを反映・停止・取消の完了と扱わず、高影響操作の事前承認を維持する。
+
 ## 影響範囲
 
 | 変更する前提 | 再確認する対象 |
@@ -64,6 +73,7 @@ review_triggers: [source-age-6-months, management-loop-change, audience-profile-
 | 4段階の管理loop | `management-loop-change`を持つ正本と派生物 |
 | `What / Why / How / Done` | collaboration rulesとの意味整合、委任worksheet、完了条件 |
 | source鮮度・評価基準 | Evidence契約、本調査、claim table、Peitho脚注 |
+| steeringの対応・設定・反映タイミング | `steering-capability-change`を持つroadmap、Stage 2、委任worksheet、Codex環境ガイド、本調査。現在の結論slideには機能名を追加せず、将来deckへ展開するときにこの範囲を引き継ぐ |
 
 ## 関連
 
