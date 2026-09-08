@@ -1,14 +1,14 @@
 ---
 title: Worksheet - 一作業の委任定義
 status: draft
-updated: 2026-09-05
+updated: 2026-09-08
 audience_ids: [audience-business-leader-ai-user]
 principle_ids: [principle-small-scope-learning-loop, principle-human-accountability]
 stage_ids: [stage-2]
 platform_ids: [platform-neutral]
 source_ids: [source-google-delegation-2026-08-22, source-simonwillison-claude-code-2026-07-21]
 derived_artifacts: []
-review_triggers: [management-loop-change, source-age-6-months, stage-2-change, source-policy-change]
+review_triggers: [management-loop-change, steering-capability-change, source-age-6-months, stage-2-change, source-policy-change]
 ---
 
 # Worksheet - 一作業の委任定義
@@ -47,6 +47,21 @@ review_triggers: [management-loop-change, source-age-6-months, stage-2-change, s
 | 購入・契約・予約 |  |  |  |
 | 権限・認証の変更 |  |  |  |
 | その他の高影響操作 |  |  |  |
+
+## 実行中の補足・方向修正（steering）
+
+[Stage 2の運用方針](../stages/02-delegate.md)に従い、対応環境にON設定がある場合はONを推奨します。
+
+- 利用するアプリ・CLI、バージョン、model:
+- 対応状況と確認日（設定あり・標準で利用可能・非対応・未確認）:
+- 設定の状態（ON・OFF・設定不要・未確認）:
+- 途中で介入する条件（前提の誤解、対象範囲のずれなど）:
+- 修正する内容と、その理由:
+- 維持する条件（目的、承認境界、上限など）:
+- 反映を確認できた返答・成果物と記録先:
+- 反映されない場合の停止・再依頼方法:
+
+メッセージ送信と修正の反映は区別します。高影響操作の承認は以下の停止条件と併せて維持します。
 
 ## 検証と停止
 

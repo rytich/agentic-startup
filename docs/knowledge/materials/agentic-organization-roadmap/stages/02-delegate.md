@@ -1,14 +1,14 @@
 ---
 title: Stage 2 - 一作業を委任する
 status: draft
-updated: 2026-09-05
+updated: 2026-09-08
 audience_ids: [audience-business-leader-ai-user]
 principle_ids: [principle-small-scope-learning-loop, principle-human-accountability]
 stage_ids: [stage-2]
 platform_ids: [platform-neutral]
 source_ids: [source-google-delegation-2026-08-22, source-simonwillison-claude-code-2026-07-21]
 derived_artifacts: [worksheet-delegation]
-review_triggers: [management-loop-change, source-age-6-months, stage-2-change, source-policy-change]
+review_triggers: [management-loop-change, steering-capability-change, source-age-6-months, stage-2-change, source-policy-change]
 ---
 
 # Stage 2 - 一作業を委任する
@@ -53,12 +53,23 @@ Stage 1で採用した課題から、一度に結果を確認できる作業を�
 
 AIは暗黙の前提を共有しないため、人間への依頼以上に、前回結果の参照先、権限、停止条件、確認方法を明示します。Google Cloudは、委任を検証可能な単位へ分解し、曖昧な依頼では人間確認を求められる構造を提案しています。[How agents can delegate better](https://cloud.google.com/blog/products/ai-machine-learning/how-agents-can-delegate-better) Anthropicの実務者への第三者インタビューでは、contextを増やしつつ矛盾する硬い指示を減らし、人間でも誤解し得る表現を見直す運用が紹介されています。[Simon Willison, July 21 2026](https://simonwillison.net/2026/Jul/21/cat-and-thariq/)
 
+## 実行中にも方向を修正する（steering）
+
+steeringは、AIが作業している途中に補足や修正を伝える機能です。本資料の運用方針として、対応環境にON/OFF設定がある場合はONを推奨します。標準で利用できる環境では、そのまま活用します。目的は、前提の誤解や対象範囲のずれに気づいた時点で、理由を添えて修正することです。
+
+例えば「提案の対象は既存顧客です。新規向けの説明は対象外なので、既存顧客向けの提案に切り替えてください。送信は引き続き承認待ちにしてください」と伝えます。変更点、理由、維持する条件をまとめ、AIの返答や成果物で反映を確かめます。
+
+steeringの対応、設定、反映タイミングは利用画面・バージョン・modelによって確認します。使えない場合は、作業を止めるか次の確認時点で修正を渡します。送信・削除などの実行前承認は維持し、途中メッセージを送っただけで停止・取消・権限変更が完了したとは扱いません。
+
+[Codex CLI公式資料](https://learn.chatgpt.com/docs/codex/cli)は実行中の方向修正を案内しています。ON推奨はユーザーが選んだ本資料の運用方針であり、費用削減や品質改善が実証された一般則ではありません。確認日・適用範囲・未検証事項は[steeringの調査追記](../../../../planning/research/2026-09-05-agent-management-loop.md#steeringの追加確認2026-09-08)を参照してください。
+
 ## 次へ進む条件
 
 - AIが実行してよいこと、禁止することを説明できる。
 - 人間承認が必要な操作と責任者が明確である。
 - 合否、上限、停止、復旧を事前に決めている。
 - 前回の結果と判断理由から、次の依頼の`What / Why / How / Done`を説明できる。
+- 利用環境での途中修正の方法と、反映確認・停止・再依頼の方法を説明できる。
 
 ## 次に行うこと
 
