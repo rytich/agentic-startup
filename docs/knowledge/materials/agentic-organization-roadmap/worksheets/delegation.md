@@ -1,17 +1,31 @@
 ---
 title: Worksheet - 一作業の委任定義
 status: draft
-updated: 2026-09-04
+updated: 2026-09-08
 audience_ids: [audience-business-leader-ai-user]
 principle_ids: [principle-small-scope-learning-loop, principle-human-accountability]
 stage_ids: [stage-2]
 platform_ids: [platform-neutral]
-source_ids: []
+source_ids: [source-google-delegation-2026-08-22, source-simonwillison-claude-code-2026-07-21]
 derived_artifacts: []
-review_triggers: [stage-2-change, source-policy-change]
+review_triggers: [management-loop-change, steering-capability-change, source-age-6-months, stage-2-change, source-policy-change]
 ---
 
 # Worksheet - 一作業の委任定義
+
+## 前回の結果から依頼を作る
+
+- 前回確認した質問:
+- 確認できた事実:
+- 採用した推論・判断:
+- 残った不足情報:
+
+| 要素 | 今回の依頼 |
+|---|---|
+| `What` |  |
+| `Why` |  |
+| `How` |  |
+| `Done` |  |
 
 ## 作業
 
@@ -34,6 +48,21 @@ review_triggers: [stage-2-change, source-policy-change]
 | 権限・認証の変更 |  |  |  |
 | その他の高影響操作 |  |  |  |
 
+## 実行中の補足・方向修正（steering）
+
+[Stage 2の運用方針](../stages/02-delegate.md)に従い、対応環境にON設定がある場合はONを推奨します。
+
+- 利用するアプリ・CLI、バージョン、model:
+- 対応状況と確認日（設定あり・標準で利用可能・非対応・未確認）:
+- 設定の状態（ON・OFF・設定不要・未確認）:
+- 途中で介入する条件（前提の誤解、対象範囲のずれなど）:
+- 修正する内容と、その理由:
+- 維持する条件（目的、承認境界、上限など）:
+- 反映を確認できた返答・成果物と記録先:
+- 反映されない場合の停止・再依頼方法:
+
+メッセージ送信と修正の反映は区別します。高影響操作の承認は以下の停止条件と併せて維持します。
+
 ## 検証と停止
 
 - 合格条件:
@@ -47,15 +76,16 @@ review_triggers: [stage-2-change, source-policy-change]
 
 ## 次に行うこと
 
-最初の試行では、許可する操作を一つにし、読み取りまたは下書き作成から始めます。
+最初の試行では、許可する操作を一つにし、読み取りまたは下書き作成から始めます。完了後は[評価ワークシート](evaluation.md)で結果を判断し、次の依頼へ戻します。
 
-## Evidence（旧形式・再調査中）
+## Evidence
 
-| claim_id | claim | source_url | source_type | checked_at | applies_to | interpretation | review_trigger |
-|---|---|---|---|---|---|---|---|
-| claim-stage2-001 | 過剰な機能、権限、自律性は損害を招く主因になる | https://genai.owasp.org/llmrisk/llm062025-excessive-agency/ | official | 2026-09-03 | worksheet-delegation | OWASP の直接的な内容 | owasp-llm-top10-change |
-| claim-stage2-002 | 最小機能・最小権限と高影響操作への人間承認が主要対策である | https://genai.owasp.org/llmrisk/llm062025-excessive-agency/ | official | 2026-09-03 | worksheet-delegation | OWASP 対策を記入欄へ変換したroadmap recommendation | owasp-llm-top10-change |
+| claim_id | claim | primary_source_url | source_type | source_published_or_updated_at | observed_at | source_fingerprint | checked_at | reception_urls | reception_published_at | reception_signal | reception_summary | applies_to | interpretation | review_trigger |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| claim-management-loop-002 | 委任を検証可能に分け、関連情報、境界、人間判断を明示する | https://cloud.google.com/blog/products/ai-machine-learning/how-agents-can-delegate-better | official | 2026-08-22 | — | — | 2026-09-05 | https://simonwillison.net/2026/Jul/21/cat-and-thariq/ | 2026-07-21 | mixed | contextは有効だが、例外を無視した硬い指示や情報過多は誤解を増やし得る | worksheet-delegation, audience-business-leader-ai-user | `What / Why / How / Done`の記入欄は本資料の推論 | management-loop-change, source-age-6-months |
 
 ## 関連
 
 - [Stage 2](../stages/02-delegate.md)
+- [効果・品質・費用の評価](evaluation.md)
+- [マネジメントループ調査](../../../../planning/research/2026-09-05-agent-management-loop.md)

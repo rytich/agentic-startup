@@ -1,14 +1,14 @@
 ---
 title: エージェント組織導入ロードマップ
 status: draft
-updated: 2026-09-04
+updated: 2026-09-05
 audience_ids: [audience-business-leader-ai-user]
 principle_ids: [principle-business-outcome-first, principle-platform-independent, principle-small-scope-learning-loop, principle-human-accountability]
 stage_ids: [stage-0]
 platform_ids: [platform-neutral]
 source_ids: []
-derived_artifacts: []
-review_triggers: [audience-profile-change, roadmap-stage-change, source-policy-change]
+derived_artifacts: [presentation-yukawa-closing-management-loop]
+review_triggers: [audience-profile-change, roadmap-stage-change, management-loop-change, source-policy-change]
 ---
 
 # エージェント組織導入ロードマップ
@@ -36,6 +36,7 @@ AI の新機能を追い続けることではなく、事業課題へ安全か�
 11. [Stage 5: 組織として運用する](stages/05-operate.md)
 12. [Stage 6: 品質と費用を最適化する](stages/06-optimize.md)
 13. [効果・品質・費用の評価](worksheets/evaluation.md)
+14. [湯川塾プレゼンの結論スライド](presentations/yukawa-juku-closing.md)
 
 後続 Stage は調査、出典確認、レビューが完了した順に追加します。
 
@@ -45,6 +46,10 @@ AI の新機能を追い続けることではなく、事業課題へ安全か�
 - 実現パターン: クラウド同期、遠隔操作、CLI/MCP などの選択肢
 - ケーススタディ: 市江氏の macOS 環境と、今後調査する Windows 代替
 - Peitho deck: 正本から派生する発表資料。独自の判断基準を追加しない
+
+## この資料の結論
+
+AIに仕事を任せる基本は、良い人間のマネジメントと同じ構造です。必要十分な背景と目的を伝え、何を確かめるかを問い、結果を判断し、その判断から次の依頼を具体化します。ただしAIは暗黙の前提を共有しないため、権限、禁止事項、人間承認、完了条件は人への依頼より明示します。
 
 ## Evidence（旧形式・再調査中）
 
